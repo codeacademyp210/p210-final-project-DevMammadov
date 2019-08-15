@@ -1,0 +1,195 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.ExperienceVM
+
+<style>
+    .main-back {
+        background: @Model.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.Profile.TextColor;
+    }
+
+    .end-date a,
+    .start-date a {
+        color: #fff;
+    }
+</style>
+
+<section class="experience-section container">
+
+    <!-- Data url's and Path send to js -->
+    <div data-url="@Url.Action("GetAll","Experience")" class="exper-get-url"></div>
+    <div data-url="@Url.Action("Edit","Experience")" class="exper-edit-url"></div>
+    <div data-url="@Url.Action("SaveAsync","Experience")" class="exper-save-url"></div>
+    <div data-url="@Url.Action("Remove","Experience")" class="exper-remove-url"></div>
+    <div data-url="" class="exper-remove-url"></div>
+    <div data-src="../../Content/images/CompanyLogo/" class="company-logo-src"></div>
+    <!-- / Data url's and Path send to js -->
+
+    <div class="main-section-header">
+        <h6 class="mb-4">İş təcrübəsi</h6>
+
+        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.Profile.User.Email)
+        {
+            <a href="#" class="hover-underline add-form main-color"> əlavə et</a>
+        }
+    </div>
+
+    <div class="exper-add dropdown">
+        <small class="d-block w-100">İş Təcrübəsi əlavsi</small>
+
+        <div class="exper-form">
+            <div class="search-area">
+                <h6>İşlədiyiniz kompaniya</h6>
+                <label for="search-input">
+                    <img data-src="../../images/" src="" class="search-company-logo">
+                    <input type="text" id="search-input" class="form-control" name="">
+
+                    <a href="#" class="cancel main-back-color"> <i class="fa fa-times"></i> </a>
+
+                    <input type="hidden" value="" class="c-name">
+                    <input type="hidden" value="" class="c-id">
+                </label>
+                <ul data-src="../../Content/images/CompanyLogo/"></ul>
+                <!--Register new company-->
+                <small class="d-flex mt-2">
+                    <input id="new-comp" class="register-company" type="checkbox">
+                    <label for="new-comp">Yeni şirkət</label>
+                    <i class="fas fa-question-circle" title="Əgər şirkətiniz siyahıda yoxdursa yeni kimi işarələyin"></i>
+                    <small class="text-danger c-name-error ml-4">Lütfən iş yerinin adını da qeyd edin</small>
+                </small>
+            </div>
+
+            <h6>Başladığınız tarix</h6>
+            <input type="date" class="form-control start-date" name="" id="">
+            <small class="text-danger s-date-error">Lütfən başlanğıc tarixi qeyd edin</small>
+
+            <h6>
+                Bitirdiyiniz tarix
+                <label for="present">( işləyirəm </label>
+                <input type="checkbox" id="present" name="">)
+            </h6>
+
+            <input type="date" class="form-control end-date" name="" id="">
+            <small class="text-danger e-date-error">Lütfən bitmə tarixini qeyd edin</small>
+
+            <h6>İşdəki öhdəlikləriniz</h6>
+            <textarea maxlength="350" class="form-control exper-about" rows="5"></textarea>
+
+
+            <input type="submit" data-url="" class="butt butt-gray mt-4" value="Təstiqlə">
+            <small class="text-danger about-work-error">İşlədi öhdəliklərini barədə danışın (ən azı 100 hərf)</small>
+        </div>
+    </div>
+    <div class="experiences">
+
+        @foreach (var item in Model.Experiences)
+        {
+            var company = Model.Companies.FirstOrDefault(c => c.id == item.CompanyId);
+
+            <div class="exper" id="@item.id">
+                <div class="exper-aside main-back">
+                    <img src="~/Content/Images/CompanyLogo/@company.Icon" alt="">
+                    <h5> @company.Name </h5>
+                    <h6><i>@item.Position</i> </h6>
+                    <div class="mt-4 start-date">
+                        <b>Başlama:</b>
+                        <span> @item.StartDate.ToString("dd-MM-yyyy") </span>
+
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.Profile.User.Email)
+                        {
+                            <input type="hidden" value="@item.StartDate.ToString("yyyy-MM-dd")" class="s-date">
+                            <div class="s-date-edit-controls">
+                                <input type="date" class="borderless">
+                                <small class="text-danger s-date-error">Lütfən başlanğıc tarixi yazın </small>
+                            </div>
+                            <a href="#" class="s-date-save control-icon">
+                                <i class="fas fa-check"></i>
+                            </a>
+                            <a href="#" class="s-date-edit control-icon">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        }
+                    </div>
+
+                    <div class="end-date">
+                        <b>Bitmə:</b>
+
+                        @if (item.EndDate.ToString("yyyy-MM-dd") == "0001-01-01")
+                        {
+                            <span>
+                                İşləyirəm
+                            </span>
+                        }
+                        else
+                        {
+                            <span>@item.EndDate.ToString("dd-MM-yyyy")</span>
+                        }
+
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.Profile.User.Email)
+                        {
+
+                            <input type="hidden" value="@item.EndDate.ToString("yyyy-MM-dd")" class="e-date">
+
+                            <div class="e-date-edit-controls">
+                                <input type="date" class="borderless">
+                                <small class="text-danger e-date-error">Lütfən bitmə tarixi yazın </small>
+                            </div>
+                            <a href="#" class="e-date-save control-icon">
+                                <i class="fas fa-check"></i>
+                            </a>
+                            <a href="#" class="e-date-edit control-icon">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="exper-body">
+                        <h6 class="d-flex justify-content-between">
+                            <span>Öhdəliklər</span>
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.Profile.User.Email)
+                            {
+                                <div>
+                                    <a href="#" class="about-work-save control-icon main-back-color">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="about-work-edit control-icon ml-2 main-back-color">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="#" class="experience-remove control-icon main-back-color">
+                                        <i class="fas fa-trash-alt ml-2"></i>
+                                    </a>
+                                </div>
+                            }
+                         </h6>
+                    <span class="work-about">
+                        <div class="about-work-edit-controls">
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.Profile.User.Email)
+                            {
+                                <textarea name="" maxlength="350" id="" rows="3" class="form-control"></textarea>
+                            }
+                                <small class="text-danger edit-about-work-error">İşdəki öhdəlikləriniz barədə danışın (ən azı 100 hərf)</small>
+                            </div>
+
+                        <span>
+                            @item.About
+                        </span>
+                    </span>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</section>
+
+<script src="~/js/Profile/exper.js"></script>
+<script src="~/js/Profile/main.js"></script>

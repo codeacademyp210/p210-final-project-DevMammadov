@@ -1,0 +1,29 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.CvVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    @await Html.PartialAsync("_Cover",Model.coverClass)
+    <!--=============================== Partial view area ===================================-->
+    <!-- Main section -->
+
+    <div id="partials" data-profile="@Model.coverClass.Profile.id">
+        @await Html.PartialAsync("_Cv", Model)
+    </div>
+    <!--=============================== Partial view area ===================================-->
+</main>
+@await Html.PartialAsync("_AjaxSections")
+
+<script>
+    $(".profile-navbar .ul-menu li").removeClass('active');
+    $(".profile-navbar .ul-menu li#CV").addClass('active');
+</script>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/profile/main.css">
+    <link rel="stylesheet" href="~/css/profile/cv.css">
+    <link rel="stylesheet" href="~/css/profile/cvmedia.css">
+}

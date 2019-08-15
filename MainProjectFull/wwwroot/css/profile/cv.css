@@ -1,0 +1,1631 @@
+.section-cv{
+    padding: 60px 15px;
+}
+
+/* Cv editor */
+
+.edit-cv{
+    padding: 0 30px;
+}
+
+
+.edit-cv .cv-forms{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.edit-cv .cv-forms >div{
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.edit-cv .cv-forms img{
+    height: 100%;
+    width: 100%
+}
+
+.edit-cv.opened {
+    height: 200px;
+}
+
+
+/* ------------------ Cv Colors -------- */
+
+.cv-colors{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cv-colors >div{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* margin-left: 11px; */
+    border: 2px solid rgb(216, 216, 216);
+}
+
+.cv-blue{
+    background: #013565;
+    margin-left: 0!important;
+}
+
+.cv-pink{
+    background: #DF006C;
+}
+
+.cv-green{
+    background: #00242B;
+}
+
+.cv-violet{
+    background: #AA2EBA;
+}
+
+.cv-asphalt{
+    background: #34495e;
+}
+
+.cv-pumpkin{
+    background: #d35400;
+}
+
+.cv-sea{
+    background: #16a085;
+}
+
+.cv-silver{
+    background: #7f8c8d;
+}
+
+.cv-granate{
+    background: #c0392b;
+}
+
+.cv-deeprose{
+    background: #c44569;
+}
+
+.cv-purple{
+    background: #574b90;
+}
+/* light rose */
+.cv-rose{
+    background: #e66767;
+}
+/* baltic sea */
+.cv-baltic{
+    background: #3d3d3d;
+}
+/* red orange */
+.cv-red{
+    background: #ff3838;
+}
+
+.cv-liberty{
+    background: #474787;
+}
+
+/* devil blue */
+.cv-devil{
+    background: #227093;
+}
+
+.cv-desire{
+    background: #eb3b5a;
+}
+/* very berry */
+.cv-berry{
+    background: #B53471;
+}
+/* ----------- Current CV --------- */
+
+.current-cv{
+    padding: 20px 30px;
+}
+
+/* ----------- Simple --------------- */
+
+.cv.simple{
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.cv.simple .cv-aside{
+    width: 400px;
+    padding: 50px 15px 10px 25px;
+    color: #fff;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.cv.simple ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.simple .cv-header{
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    margin-top: 30px;
+}
+
+.simple .cv-img{
+    position: relative;
+    height: 210px;
+    width: 210px;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.simple .cv-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.simple .upload-cv-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.simple .cv-img-save,
+.simple .cv-img-uploader{
+    background: rgba(255, 255, 255, 0.281);
+    padding: 20px;
+    border-radius: 40%;
+    position: relative;
+}
+
+
+.simple .cv-img-save{
+    display: none;
+}
+
+.simple .cv-introduction{
+    padding-top: 15px;
+}
+
+.simple .cv-contact span,
+.simple .cv-introduction span{
+    font-size: 14px;
+    line-height: 10px;
+}
+
+.simple .cv-contact i{
+    display: none;
+}
+
+.simple .cv-skills ul li{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 3px 0;
+}
+
+.simple .cv-skills ul{
+    
+    padding-bottom: 5px;
+}
+
+.simple .cv-skills p{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.simple .cv-social-address a{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 7px;
+}
+
+.simple .cv-body{
+    width: 100%;
+}
+
+.simple .cv-cover{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 250px;
+    color: #fff;
+}
+
+.simple .cv-cover span{
+    font-weight: bold;
+}
+
+.simple .cv-section{
+    margin: 20px 40px;
+}
+
+.simple .cv-section .s-header{
+    padding: 7px;
+}
+
+.simple .cv-section .s-header i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.simple .cv-section span{
+    font-weight: bold;
+}
+
+.simple .cv-section .s-body{
+    padding-top: 10px;
+}
+
+.simple .cv-section .s-body span{
+    display: block;
+    margin-top: 10px;
+}
+
+.simple .cv-section .s-body small{
+    font-style: italic;
+}
+
+/* simple cv colors */
+
+/* Blue */
+.simple.blue .cv-aside{
+    background: #203864;
+}
+
+.simple.blue .cv-cover{
+    background: #24547c;
+}
+
+.simple.blue .cv-section{
+    color: #1f4e79;
+}
+
+.simple.blue .s-header{
+    background: #eff3fa;
+}
+
+.simple.blue .s-header span{
+    color: #2c5b85;
+}
+
+/* Pink */
+
+.simple.pink .cv-aside{
+    background: #df006c;
+}
+
+.simple.pink .cv-cover{
+    background: #ffa2cf;
+}
+
+.simple.pink .cv-section{
+    color: #960048;
+}
+
+.simple.pink .s-header{
+    background: #fff1f9;
+}
+
+.simple.pink .s-header span{
+    color: #a80051;
+}
+
+/* Green */
+
+.simple.green .cv-aside{
+    background: #00242B;
+}
+
+.simple.green .cv-cover{
+    background: #03674F;
+}
+
+.simple.green .cv-section{
+    color: #00242B;
+}
+
+.simple.green .s-header{
+    background: #EFF9F2;
+}
+
+.simple.green .s-header span{
+    color: #03674F;
+}
+
+/* ------ violet -------- */
+/* aside background */
+.simple.violet .cv-aside{
+    background: #AA2EBA;
+}
+/* cover background */
+.simple.violet .cv-cover{
+    background: rgb(229, 148, 240);
+}
+/* body text color */
+.simple.violet .cv-section{
+    color: rgb(109, 19, 121);
+}
+/* header text background */
+.simple.violet .s-header{
+    background: rgb(253, 237, 255);
+}
+/* header text */
+.simple.violet .s-header span{
+    color: rgb(72, 11, 80);
+}
+
+/* ------ asphalt -------- */
+/* aside background */
+.simple.asphalt .cv-aside{
+    background: #34495E;
+}
+/* cover background */
+.simple.asphalt .cv-cover{
+    background: rgb(134, 153, 172);
+}
+/* body text color */
+.simple.asphalt .cv-section{
+    color: #34495E;
+}
+/* header text background */
+.simple.asphalt .s-header{
+    background: rgb(219, 228, 238);
+}
+/* header text */
+.simple.asphalt .s-header span{
+    color: rgb(37, 55, 73);
+}
+
+/* ------ pumpkin -------- */
+
+/* aside background */
+.simple.pumpkin .cv-aside{
+    background: #D35400;
+}
+/* cover background */
+.simple.pumpkin .cv-cover{
+    background: rgb(238, 181, 143);
+}
+/* body text color */
+.simple.pumpkin .cv-section{
+    color: rgb(136, 56, 3);
+}
+/* header text background */
+.simple.pumpkin .s-header{
+    background: rgb(245, 239, 235);
+}
+/* header text */
+.simple.pumpkin .s-header span{
+    color: rgb(112, 46, 2);
+}
+
+/* ----------------- sea -------- */
+
+/* aside background */
+.simple.sea .cv-aside{
+    background: #16A085;
+}
+/* cover background */
+.simple.sea .cv-cover{
+    background: rgb(108, 228, 204);
+}
+/* body text color */
+.simple.sea .cv-section{
+    color: rgb(13, 121, 99);
+}
+/* header text background */
+.simple.sea .s-header{
+    background: rgb(230, 250, 245);
+}
+/* header text */
+.simple.sea .s-header span{
+    color: rgb(7, 94, 76);
+}
+
+/* ----------------- silver -------- */
+
+/* aside background */
+.simple.silver .cv-aside{
+    background: #7F8C8D;
+}
+/* cover background */
+.simple.silver .cv-cover{
+    background: rgb(196, 202, 202);
+}
+/* body text color */
+.simple.silver .cv-section{
+    color: rgb(108, 118, 119);
+}
+/* header text background */
+.simple.silver .s-header{
+    background: rgb(248, 250, 250);
+}
+/* header text */
+.simple.silver .s-header span{
+    color: rgb(100, 110, 110);
+}
+
+/* ----------------- granate -------- */
+
+/* aside background */
+.simple.granate .cv-aside{
+    background: #C0392B;
+}
+/* cover background */
+.simple.granate .cv-cover{
+    background: rgb(233, 176, 169);
+}
+/* body text color */
+.simple.granate .cv-section{
+    color: rgb(148, 40, 28);
+}
+/* header text background */
+.simple.granate .s-header{
+    background: rgb(250, 241, 240);
+}
+/* header text */
+.simple.granate .s-header span{
+    color: rgb(121, 29, 19);
+}
+
+/* ----------------- deeprose -------- */
+
+/* aside background */
+.simple.deeprose .cv-aside{
+    background: #C44569;
+}
+/* cover background */
+.simple.deeprose .cv-cover{
+    background: rgb(233, 158, 179);
+}
+/* body text color */
+.simple.deeprose .cv-section{
+    color: rgb(170, 56, 89);
+}
+/* header text background */
+.simple.deeprose .s-header{
+    background: rgb(250, 240, 243);
+}
+/* header text */
+.simple.deeprose .s-header span{
+    color: rgb(167, 56, 87);
+}
+
+/* ----------------- purple -------- */
+
+/* aside background */
+.simple.purple .cv-aside{
+    background: #574B90;
+}
+/* cover background */
+.simple.purple .cv-cover{
+    background: rgb(177, 168, 219);
+}
+/* body text color */
+.simple.purple .cv-section{
+    color: #574B90;
+}
+/* header text background */
+.simple.purple .s-header{
+    background: rgb(246, 245, 252);
+}
+/* header text */
+.simple.purple .s-header span{
+    color: #574B90;
+}
+
+
+/* ----------------- rose -------- */
+
+/* aside background */
+.simple.rose .cv-aside{
+    background: #E66767;
+}
+/* cover background */
+.simple.rose .cv-cover{
+    background: rgb(238, 186, 186);
+}
+/* body text color */
+.simple.rose .cv-section{
+    color: rgb(190, 78, 78);
+}
+/* header text background */
+.simple.rose .s-header{
+    background: rgb(252, 242, 242);
+}
+/* header text */
+.simple.rose .s-header span{
+    color: rgb(197, 89, 89);
+}
+
+/* ----------------- baltic -------- */
+
+/* aside background */
+.simple.baltic .cv-aside{
+    background: #3D3D3D;
+}
+/* cover background */
+.simple.baltic .cv-cover{
+    background: rgb(158, 158, 158);
+}
+/* body text color */
+.simple.baltic .cv-section{
+    color: rgb(49, 49, 49);
+}
+/* header text background */
+.simple.baltic .s-header{
+    background: rgb(243, 243, 243);
+}
+/* header text */
+.simple.baltic .s-header span{
+    color: rgb(51, 51, 51);
+}
+
+
+/* ----------------- red -------- */
+
+/* aside background */
+.simple.red .cv-aside{
+    background: #FF3838;
+}
+/* cover background */
+.simple.red .cv-cover{
+    background: rgb(255, 169, 169);
+}
+/* body text color */
+.simple.red .cv-section{
+    color: rgb(214, 34, 34);
+}
+/* header text background */
+.simple.red .s-header{
+    background: rgb(255, 245, 245);
+}
+/* header text */
+.simple.red .s-header span{
+    color: rgb(204, 30, 30);
+}
+
+
+/* ----------------- liberty -------- */
+
+/* aside background */
+.simple.liberty .cv-aside{
+    background: #474787;
+}
+/* cover background */
+.simple.liberty .cv-cover{
+    background: #8585b6;
+}
+/* body text color */
+.simple.liberty .cv-section{
+    color:  #313169;
+}
+/* header text background */
+.simple.liberty .s-header{
+    background:  #f0f0f7;
+}
+/* header text */
+.simple.liberty .s-header span{
+    color:  #2d2d61;
+}
+
+
+/* ----------------- devil -------- */
+
+/* aside background */
+.simple.devil .cv-aside{
+    background: #227093;
+}
+/* cover background */
+.simple.devil .cv-cover{
+    background: #6bb0cf;
+}
+/* body text color */
+.simple.devil .cv-section{
+    color:  #13516e;
+}
+/* header text background */
+.simple.devil .s-header{
+    background:  #eef4f7;
+}
+/* header text */
+.simple.devil .s-header span{
+    color:  #124e69;
+}
+
+
+/* ----------------- desire -------- */
+
+/* aside background */
+.simple.desire .cv-aside{
+    background: #EB3B5A;
+}
+/* cover background */
+.simple.desire .cv-cover{
+    background: rgb(243, 141, 159);
+}
+/* body text color */
+.simple.desire .cv-section{
+    color:  rgb(185, 34, 62);
+}
+/* header text background */
+.simple.desire .s-header{
+    background:  rgb(247, 240, 241);
+}
+/* header text */
+.simple.desire .s-header span{
+    color:  rgb(192, 40, 68);
+}
+
+
+/* ----------------- berry -------- */
+
+/* aside background */
+.simple.berry .cv-aside{
+    background: #B53471;
+}
+/* cover background */
+.simple.berry .cv-cover{
+    background: rgb(209, 110, 156);
+}
+/* body text color */
+.simple.berry .cv-section{
+    color:  rgb(139, 34, 83);
+}
+/* header text background */
+.simple.berry .s-header{
+    background:  rgb(248, 242, 245);
+}
+/* header text */
+.simple.berry .s-header span{
+    color:  rgb(148, 36, 88);
+}
+
+
+
+
+/* ====================================== Wave ===========================  */
+
+.cv.wave{
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(212, 212, 212);
+    padding: 50px 30px;  
+    overflow: hidden;
+}
+
+/* wave */
+
+.cv.wave .wave-design{
+    position: absolute;
+    top: -110px;
+    left: -350px;
+    height: 556px;
+    width: 1000px;
+    background: red;
+    transform: rotate(-45deg);
+    border-bottom-left-radius: 70%;
+}
+
+.cv.wave .wave-design::after{
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    height: 650px;
+    width: 190px;
+    bottom: -350px;
+    right: 200px;
+    transform: rotate(90deg);
+    border-radius: 70%;
+}
+
+.cv.wave .wave-design-footer{
+    height: 300px;
+    width: 150px;
+    right: -50px;
+    bottom: -100px;
+    background: red;
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.wave .cv-aside{
+    width: 500px;
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wave .cv-img{
+    position: absolute;
+    height: 230px;
+    width: 230px;
+    border-radius: 100%;
+    right: 40px;
+    top: 50px;
+}
+
+.wave .cv-cover{
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    width: 200px;
+    word-wrap: break-word;
+    padding-bottom: 40px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.wave .cv-img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.wave .cv-img .cv-img-uploader{
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background: rgb(247, 247, 247);
+    border-radius: 50%;
+    padding: 20px;
+    z-index: 10;
+}
+
+.wave .cv-img-save i,
+.wave .cv-img-uploader i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.wave .cv-img-save{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(241, 241, 241);
+    z-index: 10;
+    display: none;
+}
+
+.wave .cv-cover{
+    color: #fff;
+}
+
+.wave .cv-cover h2{
+    font-weight: bold;
+    line-height: 45px;
+    /* font-family: 'Archivo Black', sans-serif; */
+}
+
+.wave .cv-aside .cv-header{
+    letter-spacing: 5px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.wave .cv-introduction .cv-header{
+    display: none;
+}
+
+.wave .cv-introduction {
+    order: 0;
+    z-index: 3;
+    color: #fff !important;
+    line-height: 20px;
+    min-height: 190px;
+}
+
+.wave .cv-contact{
+    order: 2;
+    margin-top: 60px;
+}
+
+.wave .cv-contact ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+}
+
+.wave .cv-contact ul li{
+    padding: 5px 0;
+    display: flex;
+}
+
+.wave .cv-contact ul li i{
+    font-size: 20px;
+    display: block;
+    width: 40px;
+    text-align: center;
+}
+
+.wave .cv-contact .key{
+    display: none;
+}
+
+.wave .cv-skills{
+    order: 2;
+    margin-top: 170px;
+}
+
+.wave .cv-social-address{
+    display: none;
+}
+
+/* Cv body side */
+
+.wave .cv-body{
+    display: flex;
+    flex-direction: column;
+    padding-top: 300px;
+    padding-left: 50px;
+    z-index: 5;
+}
+
+.wave .cv-body ul{
+    padding-top: 20px;
+}
+
+
+.wave .cv-section .s-header i{
+    display: none;
+}
+
+.wave .cv-skills .cv-header,
+.wave .cv-section .s-header span{
+    letter-spacing: 6px;
+    font-weight: bold;
+}
+
+.wave .cv-skills .cv-header,
+.wave .cv-section .s-header{
+    padding-bottom: 7px;
+}
+
+/* -------------- Experience */
+
+.wave .experience{
+    padding-top: 50px;
+    order: 0;
+}
+
+.wave .experience ul li> span{
+    font-weight: 600;
+}
+
+.wave .experience ul li span + small{
+    display: block;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.wave .experience ul li p+p{
+    font-size: 14px;
+}
+
+/* ---------- Activity */
+
+.wave .activity ul li > span{
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.wave .activity ul li > small{
+    display: block;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.wave .activity ul li{
+    padding: 3px 0;
+}
+
+/* ---------- Hobbi */
+
+.wave .hobbi{
+    display: none;
+}
+
+/* -------- Academic back */
+
+.wave .academic{
+    order: 1;
+}
+
+.wave .academic ul li span{
+    font-weight: 600;
+}
+
+.wave .academic ul li small{
+    display: block;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.wave .academic ul li{
+    padding: 3px 0;
+}
+
+/* ---------- Languages inside cv aside */
+
+.wave .cv-section.languages{
+    order: 2;
+    padding-top: 60px;
+}
+
+.wave .cv-section.languages small{
+    letter-spacing: 3px;
+}
+
+.wave .cv-section.languages ul{
+    padding-top: 20px;
+}
+
+.wave .cv-section.languages ul li{
+    padding: 5px 0;
+}
+
+/* ---------- Skills inside cv body */
+
+.wave .cv-skills p{
+    margin-bottom: 5px;
+    margin-top: 15px;
+    letter-spacing: 3px;
+}
+
+.wave .cv-skills ul{
+    list-style: disc;
+    padding-top: 0;
+    margin-left: 35px;
+}
+
+/* ---------- Wave design colors */
+
+/* --------- blue -------- */
+.cv.wave.blue .wave-design-footer,
+.cv.wave.blue .wave-design{
+    background: rgba(0,25,46,1);
+    background: -moz-linear-gradient(45deg, rgba(0,25,46,1) 0%, rgba(109,15,171,1) 64%, rgba(109,15,171,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,25,46,1)), color-stop(64%, rgba(109,15,171,1)), color-stop(100%, rgba(109,15,171,1)));
+    background: -webkit-linear-gradient(45deg, rgba(0,25,46,1) 0%, rgba(109,15,171,1) 64%, rgba(109,15,171,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(0,25,46,1) 0%, rgba(109,15,171,1) 64%, rgba(109,15,171,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(0,25,46,1) 0%, rgba(109,15,171,1) 64%, rgba(109,15,171,1) 100%);
+    background: linear-gradient(45deg, rgba(0,25,46,1) 0%, rgba(109,15,171,1) 64%, rgba(109,15,171,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.blue .cv-header,
+.cv.wave.blue .cv-section .s-header{
+    color: #002547;
+}
+
+/* text color */
+.cv.wave.blue .upload-cv-img a i,
+.cv.wave.blue .cv-aside >div,
+.cv.wave.blue .cv-skills,
+.cv.wave.blue .cv-section .s-body{
+    color: #02427e;
+}
+
+/* bottom borders */
+.wave.blue .cv-skills .cv-header,
+.wave.blue .cv-section .s-header,
+.wave.blue .cv-aside .cv-header{
+ border-bottom:  1px solid #002547;
+}
+
+/* --------- pink -------- */
+.cv.wave.pink .wave-design-footer,
+.cv.wave.pink .wave-design{
+    background: rgba(223,0,108,1);
+    background: -moz-linear-gradient(45deg, rgba(223,0,108,1) 0%, rgba(255,107,181,1) 70%, rgba(255,107,181,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(223,0,108,1)), color-stop(70%, rgba(255,107,181,1)), color-stop(100%, rgba(255,107,181,1)));
+    background: -webkit-linear-gradient(45deg, rgba(223,0,108,1) 0%, rgba(255,107,181,1) 70%, rgba(255,107,181,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(223,0,108,1) 0%, rgba(255,107,181,1) 70%, rgba(255,107,181,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(223,0,108,1) 0%, rgba(255,107,181,1) 70%, rgba(255,107,181,1) 100%);
+    background: linear-gradient(45deg, rgba(223,0,108,1) 0%, rgba(255,107,181,1) 70%, rgba(255,107,181,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.pink .cv-header,
+.cv.wave.pink .cv-section .s-header{
+    color: rgb(175, 2, 86);
+}
+
+/* text color */
+.cv.wave.pink .upload-cv-img a i,
+.cv.wave.pink .cv-aside >div,
+.cv.wave.pink .cv-skills,
+.cv.wave.pink .cv-section .s-body{
+    color: rgb(240, 3, 118);
+}
+
+/* bottom borders */
+.wave.pink .cv-skills .cv-header,
+.wave.pink .cv-section .s-header,
+.wave.pink .cv-aside .cv-header{
+ border-bottom:  1px solid rgb(175, 2, 86);
+}
+
+
+/* --------- green -------- */
+.cv.wave.green .wave-design-footer,
+.cv.wave.green .wave-design{
+    background: rgba(0,36,43,1);
+    background: -moz-linear-gradient(45deg, rgba(0,36,43,1) 0%, rgba(93,17,143,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,36,43,1)), color-stop(100%, rgba(93,17,143,1)));
+    background: -webkit-linear-gradient(45deg, rgba(0,36,43,1) 0%, rgba(93,17,143,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(0,36,43,1) 0%, rgba(93,17,143,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(0,36,43,1) 0%, rgba(93,17,143,1) 100%);
+    background: linear-gradient(45deg, rgba(0,36,43,1) 0%, rgba(93,17,143,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.green .cv-header,
+.cv.wave.green .cv-section .s-header{
+    color: #00242B;
+}
+
+/* text color */
+.cv.wave.green .upload-cv-img a i,
+.cv.wave.green .cv-aside >div,
+.cv.wave.green .cv-skills,
+.cv.wave.green .cv-section .s-body{
+    color: #00242B;
+}
+
+/* bottom borders */
+.wave.green .cv-skills .cv-header,
+.wave.green .cv-section .s-header,
+.wave.green .cv-aside .cv-header{
+ border-bottom:  1px solid #00242B;
+}
+
+
+/* --------- violet -------- */
+.cv.wave.violet .wave-design-footer,
+.cv.wave.violet .wave-design{
+    background: rgba(169,45,188,1);
+    background: -moz-linear-gradient(45deg, rgba(169,45,188,1) 0%, rgba(227,96,109,1) 53%, rgba(227,96,109,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(169,45,188,1)), color-stop(53%, rgba(227,96,109,1)), color-stop(100%, rgba(227,96,109,1)));
+    background: -webkit-linear-gradient(45deg, rgba(169,45,188,1) 0%, rgba(227,96,109,1) 53%, rgba(227,96,109,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(169,45,188,1) 0%, rgba(227,96,109,1) 53%, rgba(227,96,109,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(169,45,188,1) 0%, rgba(227,96,109,1) 53%, rgba(227,96,109,1) 100%);
+    background: linear-gradient(45deg, rgba(169,45,188,1) 0%, rgba(227,96,109,1) 53%, rgba(227,96,109,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.violet .cv-header,
+.cv.wave.violet .cv-section .s-header{
+    color: #47167D;
+}
+
+/* text color */
+.cv.wave.violet .upload-cv-img a i,
+.cv.wave.violet .cv-aside >div,
+.cv.wave.violet .cv-skills,
+.cv.wave.violet .cv-section .s-body{
+    color: #765996;
+}
+
+/* bottom borders */
+.wave.violet .cv-skills .cv-header,
+.wave.violet .cv-section .s-header,
+.wave.violet .cv-aside .cv-header{
+ border-bottom:  1px solid #765996;
+}
+
+
+
+/* --------- asphalt -------- */
+.cv.wave.asphalt .wave-design-footer,
+.cv.wave.asphalt .wave-design{
+    background: rgba(52,73,94,1);
+    background: -moz-linear-gradient(45deg, rgba(52,73,94,1) 0%, rgba(123,86,153,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(52,73,94,1)), color-stop(100%, rgba(123,86,153,1)));
+    background: -webkit-linear-gradient(45deg, rgba(52,73,94,1) 0%, rgba(123,86,153,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(52,73,94,1) 0%, rgba(123,86,153,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(52,73,94,1) 0%, rgba(123,86,153,1) 100%);
+    background: linear-gradient(45deg, rgba(52,73,94,1) 0%, rgba(123,86,153,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.asphalt .cv-header,
+.cv.wave.asphalt .cv-section .s-header{
+    color: #34495E;
+}
+
+/* text color */
+.cv.wave.asphalt .upload-cv-img a i,
+.cv.wave.asphalt .cv-aside >div,
+.cv.wave.asphalt .cv-skills,
+.cv.wave.asphalt .cv-section .s-body{
+    color: rgb(84, 105, 128);
+}
+
+/* bottom borders */
+.wave.asphalt .cv-skills .cv-header,
+.wave.asphalt .cv-section .s-header,
+.wave.asphalt .cv-aside .cv-header{
+ border-bottom:  1px solid rgb(84, 105, 128);
+}
+
+
+/* --------- pumpkin -------- */
+.cv.wave.pumpkin .wave-design-footer,
+.cv.wave.pumpkin .wave-design{
+    background: rgba(211,84,0,1);
+    background: -moz-linear-gradient(45deg, rgba(211,84,0,1) 0%, rgba(209,0,28,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(211,84,0,1)), color-stop(100%, rgba(209,0,28,1)));
+    background: -webkit-linear-gradient(45deg, rgba(211,84,0,1) 0%, rgba(209,0,28,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(211,84,0,1) 0%, rgba(209,0,28,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(211,84,0,1) 0%, rgba(209,0,28,1) 100%);
+    background: linear-gradient(45deg, rgba(211,84,0,1) 0%, rgba(209,0,28,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.pumpkin .cv-header,
+.cv.wave.pumpkin .cv-section .s-header{
+    color: rgb(185, 75, 2);
+}
+
+/* text color */
+.cv.wave.pumpkin .upload-cv-img a i,
+.cv.wave.pumpkin .cv-aside >div,
+.cv.wave.pumpkin .cv-skills,
+.cv.wave.pumpkin .cv-section .s-body{
+    color: rgb(202, 104, 39);
+}
+
+/* bottom borders */
+.wave.pumpkin .cv-skills .cv-header,
+.wave.pumpkin .cv-section .s-header,
+.wave.pumpkin .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(185, 75, 2);
+}
+
+
+/* --------- sea -------- */
+.cv.wave.sea .wave-design-footer,
+.cv.wave.sea .wave-design{
+    background: rgba(22,160,132,1);
+    background: -moz-linear-gradient(45deg, rgba(22,160,132,1) 0%, rgba(20,76,125,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(22,160,132,1)), color-stop(100%, rgba(20,76,125,1)));
+    background: -webkit-linear-gradient(45deg, rgba(22,160,132,1) 0%, rgba(20,76,125,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(22,160,132,1) 0%, rgba(20,76,125,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(22,160,132,1) 0%, rgba(20,76,125,1) 100%);
+    background: linear-gradient(45deg, rgba(22,160,132,1) 0%, rgba(20,76,125,1) 100%);
+}
+
+/* header text color  */
+.cv.wave.sea .cv-header,
+.cv.wave.sea .cv-section .s-header{
+    color: rgb(12, 126, 103);
+}
+
+/* text color */
+.cv.wave.sea .upload-cv-img a i,
+.cv.wave.sea .cv-aside >div,
+.cv.wave.sea .cv-skills,
+.cv.wave.sea .cv-section .s-body{
+    color: rgb(28, 151, 127);
+}
+
+/* bottom borders */
+.wave.sea .cv-skills .cv-header,
+.wave.sea .cv-section .s-header,
+.wave.sea .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(12, 126, 103);
+}
+
+
+
+/* --------- silver -------- */
+
+.cv.wave.silver .wave-design-footer,
+.cv.wave.silver .wave-design{
+    background: rgba(127,140,141,1);
+    background: -moz-linear-gradient(45deg, rgba(127,140,141,1) 0%, rgba(143,126,126,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(127,140,141,1)), color-stop(100%, rgba(143,126,126,1)));
+    background: -webkit-linear-gradient(45deg, rgba(127,140,141,1) 0%, rgba(143,126,126,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(127,140,141,1) 0%, rgba(143,126,126,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(127,140,141,1) 0%, rgba(143,126,126,1) 100%);
+    background: linear-gradient(45deg, rgba(127,140,141,1) 0%, rgba(143,126,126,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.silver .cv-header,
+.cv.wave.silver .cv-section .s-header{
+    color: rgb(104, 115, 116);
+}
+
+/* text color */
+.cv.wave.silver .upload-cv-img a i,
+.cv.wave.silver .cv-aside >div,
+.cv.wave.silver .cv-skills,
+.cv.wave.silver .cv-section .s-body{
+    color: rgb(138, 152, 153);
+}
+
+/* bottom borders */
+.wave.silver .cv-skills .cv-header,
+.wave.silver .cv-section .s-header,
+.wave.silver .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(104, 115, 116);
+}
+
+
+/* --------- granate -------- */
+
+.cv.wave.granate .wave-design-footer,
+.cv.wave.granate .wave-design{
+    background: rgba(192,58,43,1);
+    background: -moz-linear-gradient(45deg, rgba(192,58,43,1) 0%, rgba(191,44,127,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(192,58,43,1)), color-stop(100%, rgba(191,44,127,1)));
+    background: -webkit-linear-gradient(45deg, rgba(192,58,43,1) 0%, rgba(191,44,127,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(192,58,43,1) 0%, rgba(191,44,127,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(192,58,43,1) 0%, rgba(191,44,127,1) 100%);
+    background: linear-gradient(45deg, rgba(192,58,43,1) 0%, rgba(191,44,127,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.granate .cv-header,
+.cv.wave.granate .cv-section .s-header{
+    color: rgb(155, 43, 31);
+}
+
+/* text color */
+.cv.wave.granate .upload-cv-img a i,
+.cv.wave.granate .cv-aside >div,
+.cv.wave.granate .cv-skills,
+.cv.wave.granate .cv-section .s-body{
+    color: #C0392B
+}
+
+/* bottom borders */
+.wave.granate .cv-skills .cv-header,
+.wave.granate .cv-section .s-header,
+.wave.granate .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(155, 43, 31);
+}
+
+
+
+/* --------- deeprose -------- */
+
+.cv.wave.deeprose .wave-design-footer,
+.cv.wave.deeprose .wave-design{
+    background: rgba(196,69,105,1);
+    background: -moz-linear-gradient(45deg, rgba(196,69,105,1) 0%, rgba(196,69,105,1) 19%, rgba(194,70,186,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(196,69,105,1)), color-stop(19%, rgba(196,69,105,1)), color-stop(100%, rgba(194,70,186,1)));
+    background: -webkit-linear-gradient(45deg, rgba(196,69,105,1) 0%, rgba(196,69,105,1) 19%, rgba(194,70,186,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(196,69,105,1) 0%, rgba(196,69,105,1) 19%, rgba(194,70,186,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(196,69,105,1) 0%, rgba(196,69,105,1) 19%, rgba(194,70,186,1) 100%);
+    background: linear-gradient(45deg, rgba(196,69,105,1) 0%, rgba(196,69,105,1) 19%, rgba(194,70,186,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.deeprose .cv-header,
+.cv.wave.deeprose .cv-section .s-header{
+    color: rgb(160, 54, 84);
+}
+
+/* text color */
+.cv.wave.deeprose .upload-cv-img a i,
+.cv.wave.deeprose .cv-aside >div,
+.cv.wave.deeprose .cv-skills,
+.cv.wave.deeprose .cv-section .s-body{
+    color: rgb(206, 80, 116);
+}
+
+/* bottom borders */
+.wave.deeprose .cv-skills .cv-header,
+.wave.deeprose .cv-section .s-header,
+.wave.deeprose .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(160, 54, 84);
+}
+
+
+/* --------- purple -------- */
+
+.cv.wave.purple .wave-design-footer,
+.cv.wave.purple .wave-design{
+    background: rgba(87,75,144,1);
+    background: -moz-linear-gradient(45deg, rgba(87,75,144,1) 0%, rgba(87,75,144,1) 19%, rgba(130,76,143,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(87,75,144,1)), color-stop(19%, rgba(87,75,144,1)), color-stop(100%, rgba(130,76,143,1)));
+    background: -webkit-linear-gradient(45deg, rgba(87,75,144,1) 0%, rgba(87,75,144,1) 19%, rgba(130,76,143,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(87,75,144,1) 0%, rgba(87,75,144,1) 19%, rgba(130,76,143,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(87,75,144,1) 0%, rgba(87,75,144,1) 19%, rgba(130,76,143,1) 100%);
+    background: linear-gradient(45deg, rgba(87,75,144,1) 0%, rgba(87,75,144,1) 19%, rgba(130,76,143,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.purple .cv-header,
+.cv.wave.purple .cv-section .s-header{
+    color: rgb(63, 54, 107);
+}
+
+/* text color */
+.cv.wave.purple .upload-cv-img a i,
+.cv.wave.purple .cv-aside >div,
+.cv.wave.purple .cv-skills,
+.cv.wave.purple .cv-section .s-body{
+    color: #574B90;
+}
+
+/* bottom borders */
+.wave.purple .cv-skills .cv-header,
+.wave.purple .cv-section .s-header,
+.wave.purple .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(63, 54, 107);
+}
+
+/* --------- rose -------- */
+
+.cv.wave.rose .wave-design-footer,
+.cv.wave.rose .wave-design{
+        background: rgba(230,103,103,1);
+        background: -moz-linear-gradient(45deg, rgba(230,103,103,1) 0%, rgba(230,103,103,1) 19%, rgba(230,163,104,1) 100%);
+        background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(230,103,103,1)), color-stop(19%, rgba(230,103,103,1)), color-stop(100%, rgba(230,163,104,1)));
+        background: -webkit-linear-gradient(45deg, rgba(230,103,103,1) 0%, rgba(230,103,103,1) 19%, rgba(230,163,104,1) 100%);
+        background: -o-linear-gradient(45deg, rgba(230,103,103,1) 0%, rgba(230,103,103,1) 19%, rgba(230,163,104,1) 100%);
+        background: -ms-linear-gradient(45deg, rgba(230,103,103,1) 0%, rgba(230,103,103,1) 19%, rgba(230,163,104,1) 100%);
+        background: linear-gradient(45deg, rgba(230,103,103,1) 0%, rgba(230,103,103,1) 19%, rgba(230,163,104,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.rose .cv-header,
+.cv.wave.rose .cv-section .s-header{
+    color: rgb(201, 89, 89);
+}
+
+/* text color */
+.cv.wave.rose .upload-cv-img a i,
+.cv.wave.rose .cv-aside >div,
+.cv.wave.rose .cv-skills,
+.cv.wave.rose .cv-section .s-body{
+    color: #E66767;
+}
+
+/* bottom borders */
+.wave.rose .cv-skills .cv-header,
+.wave.rose .cv-section .s-header,
+.wave.rose .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(201, 89, 89);
+}
+
+
+/* --------- baltic -------- */
+
+.cv.wave.baltic .wave-design-footer,
+.cv.wave.baltic .wave-design{
+    background: rgba(61,61,61,1);
+    background: -moz-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 19%, rgba(69,60,77,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(61,61,61,1)), color-stop(19%, rgba(61,61,61,1)), color-stop(100%, rgba(69,60,77,1)));
+    background: -webkit-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 19%, rgba(69,60,77,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 19%, rgba(69,60,77,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 19%, rgba(69,60,77,1) 100%);
+    background: linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 19%, rgba(69,60,77,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.baltic .cv-header,
+.cv.wave.baltic .cv-section .s-header{
+    color: rgb(39, 39, 39);
+}
+
+/* text color */
+.cv.wave.baltic .upload-cv-img a i,
+.cv.wave.baltic .cv-aside >div,
+.cv.wave.baltic .cv-skills,
+.cv.wave.baltic .cv-section .s-body{
+    color: #3D3D3D;
+}
+
+/* bottom borders */
+.wave.baltic .cv-skills .cv-header,
+.wave.baltic .cv-section .s-header,
+.wave.baltic .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(39, 39, 39);
+}
+
+
+
+/* --------- red -------- */
+
+.cv.wave.red .wave-design-footer,
+.cv.wave.red .wave-design{
+    background: rgba(255,56,56,1);
+    background: -moz-linear-gradient(45deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 19%, rgba(255,56,215,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,56,56,1)), color-stop(19%, rgba(255,56,56,1)), color-stop(100%, rgba(255,56,215,1)));
+    background: -webkit-linear-gradient(45deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 19%, rgba(255,56,215,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 19%, rgba(255,56,215,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 19%, rgba(255,56,215,1) 100%);
+    background: linear-gradient(45deg, rgba(255,56,56,1) 0%, rgba(255,56,56,1) 19%, rgba(255,56,215,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.red .cv-header,
+.cv.wave.red .cv-section .s-header{
+    color: rgb(218, 42, 42);
+}
+
+/* text color */
+.cv.wave.red .upload-cv-img a i,
+.cv.wave.red .cv-aside >div,
+.cv.wave.red .cv-skills,
+.cv.wave.red .cv-section .s-body{
+    color: #FF3838;
+}
+
+/* bottom borders */
+.wave.red .cv-skills .cv-header,
+.wave.red .cv-section .s-header,
+.wave.red .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(218, 42, 42);
+}
+
+
+/* --------- liberty -------- */
+
+.cv.wave.liberty .wave-design-footer,
+.cv.wave.liberty .wave-design{
+    background: rgba(71,71,135,1);
+    background: -moz-linear-gradient(45deg, rgba(71,71,135,1) 0%, rgba(71,71,135,1) 19%, rgba(130,70,133,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(71,71,135,1)), color-stop(19%, rgba(71,71,135,1)), color-stop(100%, rgba(130,70,133,1)));
+    background: -webkit-linear-gradient(45deg, rgba(71,71,135,1) 0%, rgba(71,71,135,1) 19%, rgba(130,70,133,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(71,71,135,1) 0%, rgba(71,71,135,1) 19%, rgba(130,70,133,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(71,71,135,1) 0%, rgba(71,71,135,1) 19%, rgba(130,70,133,1) 100%);
+    background: linear-gradient(45deg, rgba(71,71,135,1) 0%, rgba(71,71,135,1) 19%, rgba(130,70,133,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.liberty .cv-header,
+.cv.wave.liberty .cv-section .s-header{
+    color: #35356e;
+}
+
+/* text color */
+.cv.wave.liberty .upload-cv-img a i,
+.cv.wave.liberty .cv-aside >div,
+.cv.wave.liberty .cv-skills,
+.cv.wave.liberty .cv-section .s-body{
+    color: #474787;
+}
+
+/* bottom borders */
+.wave.liberty .cv-skills .cv-header,
+.wave.liberty .cv-section .s-header,
+.wave.liberty .cv-aside .cv-header{
+ border-bottom:  1px solid  #35356e;
+}
+
+
+
+/* --------- devil -------- */
+
+.cv.wave.devil .wave-design-footer,
+.cv.wave.devil .wave-design{
+    background: rgba(34,111,147,1);
+    background: -moz-linear-gradient(45deg, rgba(34,111,147,1) 0%, rgba(34,111,147,1) 19%, rgba(145,35,141,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(34,111,147,1)), color-stop(19%, rgba(34,111,147,1)), color-stop(100%, rgba(145,35,141,1)));
+    background: -webkit-linear-gradient(45deg, rgba(34,111,147,1) 0%, rgba(34,111,147,1) 19%, rgba(145,35,141,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(34,111,147,1) 0%, rgba(34,111,147,1) 19%, rgba(145,35,141,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(34,111,147,1) 0%, rgba(34,111,147,1) 19%, rgba(145,35,141,1) 100%);
+    background: linear-gradient(45deg, rgba(34,111,147,1) 0%, rgba(34,111,147,1) 19%, rgba(145,35,141,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.devil .cv-header,
+.cv.wave.devil .cv-section .s-header{
+    color: #185774;
+}
+
+/* text color */
+.cv.wave.devil .upload-cv-img a i,
+.cv.wave.devil .cv-aside >div,
+.cv.wave.devil .cv-skills,
+.cv.wave.devil .cv-section .s-body{
+    color: #227093;
+}
+
+/* bottom borders */
+.wave.devil .cv-skills .cv-header,
+.wave.devil .cv-section .s-header,
+.wave.devil .cv-aside .cv-header{
+ border-bottom:  1px solid  #185774;
+}
+
+
+/* --------- desire -------- */
+
+.cv.wave.desire .wave-design-footer,
+.cv.wave.desire .wave-design{
+    background: rgba(235,59,91,1);
+    background: -moz-linear-gradient(45deg, rgba(235,59,91,1) 0%, rgba(235,59,91,1) 19%, rgba(235,61,165,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(235,59,91,1)), color-stop(19%, rgba(235,59,91,1)), color-stop(100%, rgba(235,61,165,1)));
+    background: -webkit-linear-gradient(45deg, rgba(235,59,91,1) 0%, rgba(235,59,91,1) 19%, rgba(235,61,165,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(235,59,91,1) 0%, rgba(235,59,91,1) 19%, rgba(235,61,165,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(235,59,91,1) 0%, rgba(235,59,91,1) 19%, rgba(235,61,165,1) 100%);
+    background: linear-gradient(45deg, rgba(235,59,91,1) 0%, rgba(235,59,91,1) 19%, rgba(235,61,165,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.desire .cv-header,
+.cv.wave.desire .cv-section .s-header{
+    color: rgb(196, 45, 72);
+}
+
+/* text color */
+.cv.wave.desire .upload-cv-img a i,
+.cv.wave.desire .cv-aside >div,
+.cv.wave.desire .cv-skills,
+.cv.wave.desire .cv-section .s-body{
+    color: #EB3B5A;
+}
+
+/* bottom borders */
+.wave.desire .cv-skills .cv-header,
+.wave.desire .cv-section .s-header,
+.wave.desire .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(196, 45, 72);
+}
+
+
+/* --------- berry -------- */
+
+.cv.wave.berry .wave-design-footer,
+.cv.wave.berry .wave-design{
+    background: rgba(181,52,112,1);
+    background: -moz-linear-gradient(45deg, rgba(181,52,112,1) 0%, rgba(181,52,112,1) 19%, rgba(179,52,179,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(181,52,112,1)), color-stop(19%, rgba(181,52,112,1)), color-stop(100%, rgba(179,52,179,1)));
+    background: -webkit-linear-gradient(45deg, rgba(181,52,112,1) 0%, rgba(181,52,112,1) 19%, rgba(179,52,179,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(181,52,112,1) 0%, rgba(181,52,112,1) 19%, rgba(179,52,179,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(181,52,112,1) 0%, rgba(181,52,112,1) 19%, rgba(179,52,179,1) 100%);
+    background: linear-gradient(45deg, rgba(181,52,112,1) 0%, rgba(181,52,112,1) 19%, rgba(179,52,179,1) 100%);
+}
+
+
+/* header text color  */
+.cv.wave.berry .cv-header,
+.cv.wave.berry .cv-section .s-header{
+    color: rgb(153, 41, 93);
+}
+
+/* text color */
+.cv.wave.berry .upload-cv-img a i,
+.cv.wave.berry .cv-aside >div,
+.cv.wave.berry .cv-skills,
+.cv.wave.berry .cv-section .s-body{
+    color: #B53471;
+}
+
+/* bottom borders */
+.wave.berry .cv-skills .cv-header,
+.wave.berry .cv-section .s-header,
+.wave.berry .cv-aside .cv-header{
+ border-bottom:  1px solid  rgb(153, 41, 93);
+}

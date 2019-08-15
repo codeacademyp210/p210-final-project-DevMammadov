@@ -1,0 +1,251 @@
+@media (min-width: 1200px){
+    .container {
+        max-width: 1000px;
+        }
+    }
+    
+    
+    /* 
+      ##Device = Low Resolution Tablets, Mobiles (Landscape)
+      ##Screen = B/w 481px to 767px
+    */
+    
+@media (min-width: 481px) and (max-width: 767px) {
+   
+    /* =================== wave ================ */
+
+
+    
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .container{
+        padding: 0;
+    }
+
+    footer{
+       overflow: hidden;
+    }
+
+    .section-cv{
+        padding: 0;
+    }
+
+    .current-cv{
+        padding: 20px 0px;
+    }
+
+ /* ============ Simple CV ============*/
+
+    .cv.simple .cv-aside{
+        width: 220px;
+        padding: 40px 10px 10px 15px;
+    }
+
+    .cv.simple .cv-img{
+        height: 110px;
+        width: 110px;
+    }
+    
+    .cv.simple .cv-img img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+
+    .cv.simple .cv-header{
+        font-size: 12px;
+    }
+
+    .cv.simple .cv-cover{
+        height: 180px;
+    }
+
+    .cv.simple .cv-cover h2{
+        font-size: 19px;
+    }
+
+    .cv.simple .s-body ul li{
+        font-size: 12px;
+    }
+
+    .cv.simple .cv-cover span{
+        font-size: 15px;
+    }
+
+    .cv.simple .cv-section{
+        margin: 20px 10px;
+    }
+
+    .cv.simple .cv-section .s-header{
+        padding: 0px;
+    }
+
+    .cv.simple .cv-section .s-header i,
+    .cv.simple .cv-section span{
+        font-size: 12px;
+    }
+
+    /* ================= Wave ============== */
+
+    .cv.wave{
+        padding: 30px 10px;
+        overflow: hidden;
+    }
+
+    .wave .cv-cover{
+        left: 10px;
+        top: 24px;
+        width: 110px;
+        padding-bottom: 10px;
+    }
+
+    .wave .cv-cover h2{
+        line-height: 16px;
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .wave .cv-cover span{
+        font-size: 12px;
+    }
+
+    .cv.wave .wave-design{
+        top: -60px;
+        left: -280px;
+        height: 300px;
+        width: 800px;
+        transform: rotate(-35deg);
+        border-bottom-left-radius: 60%;
+    }
+
+    
+    .cv.wave .wave-design::after{
+        height: 400px;
+        width: 190px;
+        bottom: -180px;
+        right: 160px;
+        transform: rotate(80deg);
+        border-radius: 60%;
+        background: rgb(255, 255, 255);
+    }
+
+        
+    .cv.wave .wave-design-footer{
+        height: 130px;
+        width: 150px;
+        right: -85px;
+        bottom: -100px;
+        transform: rotate(45deg)
+    }
+
+    .wave .cv-img{
+        height: 80px;
+        width: 80px;
+        right: 20px;
+        top: 20px;
+    }
+
+    .wave .cv-img .cv-img-uploader{
+        right: -20px;
+        top: -10px;
+    }
+
+    .wave .cv-aside{
+        width: 200px;
+        padding-top: 73px;
+    }
+
+    .wave .cv-introduction {
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .wave .cv-contact ul li{
+        font-size: 13px;
+        word-break: break-all;
+    }
+
+    .wave .cv-contact ul li i{
+        width: 20px;
+        font-size: 13px;
+    }
+
+    .wave .cv-aside .cv-header{
+        font-size: 12px;
+        padding-right: 25px;
+    }
+
+    .wave .cv-contact {
+        margin-top: 60px;
+    }
+
+    .wave .cv-section.languages small{
+        font-size: 10px;
+        letter-spacing: 0;
+        display: block;
+    }
+
+    .wave .cv-section.languages ul{
+        padding-left: 20px;
+    }
+
+    .wave .cv-section.languages ul li{
+        padding: 0;
+    }
+    
+    .wave .cv-body{
+        padding-top: 150px;
+        padding-left: 30px;
+    }
+
+    .wave .cv-body ul {
+        padding-left: 20px;
+    }
+
+    .wave .cv-section .s-header span {
+        letter-spacing: 2px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .wave .experience {
+        padding-top: 60px;
+    }
+
+    .wave .experience ul li p+p {
+        font-size: 11px;
+    }
+
+    .wave .cv-skills .cv-header{
+        letter-spacing: 2px;
+        font-size: 12px;
+    }
+
+    .wave .academic ul li span,
+    .wave .activity ul li > span,
+    .wave .experience ul li> span{
+        font-size: 13px;
+    }
+
+    .wave .cv-skills ul{
+        margin:0;
+    }
+
+    .wave .cv-skills ul li{
+        font-size: 13px;
+    }
+
+    .wave .cv-skills p{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+}

@@ -1,0 +1,30 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.PortSearchVM
+
+<style>
+    .main-back {
+        background: #6D92CB;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: #6D92CB !important;
+    }
+
+    .main-color {
+        color: #6D92CB;
+    }
+</style>
+
+<main>
+    @await Html.PartialAsync("_indexCover")
+    <!--=============================== Partial view area ===================================-->
+    <!-- Main section -->
+
+    <div id="partials">
+        @await Html.PartialAsync("_indexPortfolio")
+    </div>
+    <!--=============================== Partial view area ===================================-->
+</main>
+@await Html.PartialAsync("_indexAjaxSections")

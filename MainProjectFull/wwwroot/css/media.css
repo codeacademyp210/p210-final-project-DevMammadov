@@ -1,0 +1,167 @@
+/*
+
+headers:
+   - Main page
+   - User profile
+
+*/
+
+@media (min-width: 1200px){
+.container {
+    max-width: 1300px;
+    }
+}
+
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    /* ------ Main page ------ */
+
+    .main-content{
+        width: 100%;
+    }
+
+    .main-content h2{
+        font-weight: 600;
+        font-size: 30px;
+        text-shadow: 2px 1px 4px #000;
+    }
+
+    /* ------ Main page CV Partial View -- */
+    .left-sort-menu{
+        width: 100%;
+        overflow: hidden;
+    }
+  
+    .render-partial.cv section > .container{
+        display: block
+    }
+    
+    .left-sort-menu .ul-menu-vertical li{
+        float: left;
+        padding: 0 10px;
+    }
+
+    .filter-tags{
+        max-width: 150px;
+        position: absolute;
+        background: #fff;
+    }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+         /* ------ Main page ------ */
+    
+    header nav svg{
+        position: relative;
+        height: 25px; 
+        width: 110px;
+        margin-top: 12px;
+    }
+
+    header nav .ul-menu li{
+        padding: 0 5px;
+    }
+
+    header nav .ul-menu li i {
+        font-size: 20px;
+    }
+
+    .main-content{
+        width: 100%;
+    }
+
+    .main-content h2{
+        font-weight: 600;
+        font-size: 20px;
+        text-shadow: 2px 1px 4px #000;
+    }
+
+    .main-content input[type="text"] {
+        width: 80%;
+    }
+
+    .main-content button[type="submit"] {
+        width: 20%;
+    }
+
+    /* ------ Main page CV Partial View -- */
+    .left-sort-menu{
+        width: 100%;
+        overflow: hidden;
+    }
+  
+    .render-partial.cv section > .container{
+        display: block
+    }
+
+    .render-partial.cv .row.pl-4{
+        padding-left: 0!important;
+    }
+    
+    .left-sort-menu .ul-menu-vertical li{
+        float: left;
+        padding: 0 5px;
+    }
+
+    .filter-tags{
+        max-width: 150px;
+        position: absolute;
+        background: #fff;
+    }
+
+    .range-numbers {
+        letter-spacing: 30px;
+    }
+
+    /* ================= User profile ============ */
+
+    /* -------- menu -------- */
+
+    .profile-menu .menu-opener{
+        display: block;
+    }
+
+    .profile-menu .ul-menu{
+        position: absolute;
+        z-index: 55;
+        background: #fff;
+        bottom: 0;
+        transform: translateY(100%);
+        display: none;
+    }
+
+    .profile-menu .ul-menu.opened{
+        display: block;
+    }
+
+    .profile-menu .ul-menu li{
+         display: block;
+         border-bottom: 1px solid rgb(238, 238, 238);
+         padding: 0;
+    }
+
+    .profile-menu .ul-menu li a{
+        color: #000;
+        display: block;
+        padding: 15px 20px;
+    }
+
+    /* ------------ Cover section ----- */
+
+    .cover-section{
+        padding: 0;
+    }
+    
+}

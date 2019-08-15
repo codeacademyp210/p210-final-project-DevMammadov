@@ -1,0 +1,109 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.PortVM
+
+<style>
+    .main-back {
+        background: @Model.CoverClass.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.CoverClass.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.CoverClass.Profile.TextColor;
+    }
+
+    .end-date a,
+    .start-date a {
+        color: #fff;
+    }
+</style>
+
+
+<section class="container port">
+
+    <div data-url="@Url.Action("Save","Port")" class="save-portfolio"></div>
+
+    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+    {
+    <div class="main-section-header">
+        <h6 class="mb-4">Portfolio</h6>
+        <a href="#" class="hover-underline add-form ml-4 main-color"> yüklə </a>
+    </div>
+
+    <div class="add-port dropdown">
+
+        <button class="butt butt-blue butt-big add-images">Şəkilləri seçin</button>
+        <input type="file" multiple accept=".jpg,.png" class="hidden-input port-images">
+
+        <div class="selected-photos"></div>
+
+        <small class="pname-error text-danger">Proektin adını yazın (max. 60 hərf)</small>
+        <div class="input-group mb-3 mt-4">
+            <input type="text" class="form-control pname" placeholder="proektin adı">
+        </div>
+
+        <textarea cols="30" placeholder="Proekt haqqında" rows="4" class="form-control pabout"></textarea>
+
+        <div class="input-group mb-3 port-type">
+            <label for="web"> Veb dizayn </label>
+            <input type="radio" id="veb" name="ptype" value="web" />
+
+            <label for="design" class="ml-4"> Qrafik dizayn </label>
+            <input type="radio" id="qrafik" name="ptype" value="design" />
+            <small class="ptype-error text-danger ml-4">Portfolionun tipi mütləqdir</small>
+
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fab fa-github-square"></i></span>
+            </div>
+            <input type="text" class="form-control pgithub" placeholder="Github link">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fab fa-linkedin-in"></i></span>
+            </div>
+            <input type="text" class="form-control pbehance" placeholder="Behance link">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fab fa-internet-explorer"></i></span>
+            </div>
+            <input type="text" class="form-control pwebsite" placeholder="Website link">
+        </div>
+
+        <button type="submit" class="butt butt-gray send-port mb-4">Əlavə et</button>
+    </div>
+    }
+
+    <div class="port-list" data-src="@Url.Content("~/Content/Images/PortImages/")">
+        @foreach (var item in Model.Portfolio)
+        {
+
+            var img = Model.PortfolioImages.First(p => p.PortfolioId == item.id);
+            if (img != null)
+            {
+                <div class="portfolio" id="@item.id">
+                    <img src="~/Content/Images/PortImages/@img.Name" alt="">
+                    <h5> @item.Name </h5>
+                </div>
+            }
+        }
+    </div>
+
+       
+</section>
+
+
+
+<script src="~/js/Profile/main.js"></script>
+<script src="~/js/Profile/port.js"></script>
+<script src="~/js/Profile/imgbox.js"></script>

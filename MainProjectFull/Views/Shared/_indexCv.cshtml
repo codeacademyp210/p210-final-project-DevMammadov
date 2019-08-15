@@ -1,0 +1,106 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.CvSearch
+
+@{
+    var i = 0;
+}
+
+<article class="render-partial cv cv-search">
+    <section>
+        <div class="container">
+            <aside class="left-sort-menu">
+                <ul class="ul-menu-vertical">
+                    <div class="aside-header"> Filterləmə </div>
+                    <li>
+                        <a href="#"> <i class="fas fa-eye"></i> Ən çox baxılan </a>
+                    </li>
+                    <li>
+                        <div class="filter-tags-opener"> <i class="fas fa-sliders-h"></i> Dizayn </div>
+                        <div class="filter-tags">
+                            @foreach (var item in Model.Skills.Where(s => s.Type == "design"))
+                            {
+                                i++;
+
+                                <div class="custom-chk">
+                                    <input type="checkbox" class="icon-chk" name="" id="@i">
+                                    <label for="@i">
+                                        <img src="~/Content/Images/Skillicons/@item.Icon" class="chkLogo" title="@item.Name">
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li>
+                        <div class="filter-tags-opener"> <i class="fas fa-sliders-h"></i> Proqramlama </div>
+                        <div class="filter-tags">
+                            @foreach (var item in Model.Skills.Where(s => s.Type == "code"))
+                            {
+                                i++;
+
+                                <div class="custom-chk">
+                                    <input type="checkbox" class="icon-chk" name="" id="@i">
+                                    <label for="@i">
+                                        <img src="~/Content/Images/Skillicons/@item.Icon" class="chkLogo" title="@item.Name">
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li>
+                        <button data-url="@Url.Action("GetCv","Search")" class="but butt-gray w-100 btn-search"> Axtar </button>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="container">
+                <!-- Sort tags line -->
+                <article>
+                    <section class="search-menu">
+                        <!-- Sorting menu -->
+
+                        <ul class="sort-menu ul-menu">
+                            <li>
+
+                            </li>
+
+                        </ul>
+                    </section>
+                </article>
+
+                <span class="text-secondary section-header pt-4 ml-4"> @Model.Users.Count cv tapıldı </span>
+                <div class="row pl-4 cv-forms index">
+                    @foreach (var item in Model.Users)
+                    {
+                        var profile = Model.Profiles.FirstOrDefault(p => p.UsersId == item.Id);
+                        if (profile != null)
+                        {
+                            var cv = Model.Cvs.FirstOrDefault(c => c.ProfileId == profile.id);
+
+                        <div class="col-lg-3">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                        <img id="@cv.id" src="~/Content/Images/CvImages/@cv.Photo" draggable="false" alt="">
+                                </div>
+                                <div class="portfolio-item-nav">
+                                    <div class="portfolio-user-info">
+                                        <img src="~/Content/Images/Users/@profile.Photo" class="img-round" alt="">
+                                        <div>
+                                            <h5><a href="@Url.Action("About","Profile",new {id = profile.id })"> @item.Name @item.Surname </a></h5>
+                                            <h6> @item.Profession </h6>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-item-info">
+                                        <i class="fas fa-eye"></i> <span>0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+<script src="~/js/indexCv.js"></script>

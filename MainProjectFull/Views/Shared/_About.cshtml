@@ -1,0 +1,278 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.AboutVM
+
+<style>
+    .main-back {
+        background: @Model.CoverClass.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.CoverClass.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.CoverClass.Profile.TextColor;
+    }
+
+    .end-date a,
+    .start-date a {
+        color: #fff;
+    }
+</style>
+
+<!--=============================== Partial view area ===================================-->
+<section class="container about">
+
+
+    <!-- Data url's and Path send to js -->
+
+    <div data-url="@Url.Action("EditUser","About")" class="edit-user-url"></div>
+    <div data-url="@Url.Action("AddActivity","About")" class="activity-add-url"></div>
+    <div data-url="@Url.Action("RemoveActivity","About")" class="activity-remove-url"></div>
+    <div data-url="@Url.Action("ActivityEdit","About")" class="activity-edit-url"></div>
+    <div data-url="@Url.Action("AddUniversity","About")" class="univer-add-url"></div>
+    <div data-url="@Url.Action("EditUniversity","About")" class="univer-edit-url"></div>
+    <div data-url="@Url.Action("RemoveUniversity","About")" class="univer-remove-url"></div>
+
+    <!-- Data url's and Path send to js -->
+
+
+    <div class="main-section-header">
+        <h6 class="mb-4">Haqqında</h6>
+    </div>
+    <div class="about-section">
+        <div class="about-aside main-back">
+            <div class="d-flex justify-content-between w-100 user-position">
+                <span> @Model.CoverClass.User.Profession </span>
+                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                {
+                    <input maxlength="60" type="text" id="company-name">
+                    <small class="position-error"> İxtisasınızı qeyd edin (maximum 60 hərf) </small>
+                    <i class="fas fa-check control-icon save"></i>
+                    <i class="fas fa-pen control-icon edit"></i>
+                }
+            </div>
+        </div>
+        <div class="about-body" id="about">
+            <div class="body-header">
+                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                {
+                    <a href="#" class="main-back-color save control-icon"> <i class="fas fa-check"></i> </a>
+                    <a href="#" class="main-back-color edit ml-2 control-icon"> <i class="fas fa-pen"></i> </a>
+                }
+            </div>
+            <span>
+                @Model.CoverClass.User.About
+            </span>
+            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+            {
+                <textarea name="" maxlength="250" id="" class="form-control" rows="3"></textarea>
+                <small class="u-about-error">Haqqınızdakı məlumatı boş buraxmayın (maximum 250 hərf)</small>
+            }
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        <div class="main-section-header mt-4">
+            <h6 class="mb-4"> Təhsil müəsisələri </h6>
+            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+            {
+                <a href="#" class="main-color add-form"> Əlavə et </a>
+            }
+        </div>
+        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+        {
+            <div class="univer-add dropdown pb-2">
+                <div class="socials-form">
+
+                    <h6 class="main-color">Müəsisənin adı</h6>
+                    <input type="text" maxlength="60" class="form-control univer-name" name="">
+                    <small class="uName-error">Müəsisənin adını qeyd edin (maximum 60 hərf)</small>
+
+                    <h6 class="main-color">İxtisasınız</h6>
+                    <input type="text" maxlength="60" class="form-control prof-name" name="">
+                    <small class="profName-error">vəzifənizi qeyd edin (maximum 60 hərf)</small>
+
+                    <h6 class="main-color">Başladığınız tarix</h6>
+                    <input type="date" class="form-control start-date" name="">
+                    <small class="sdate-error">Başladığınız tarixi qeyd eidn</small>
+
+                    <h6 class="main-color">Bitirdiyiniz tarix 
+                        <label for="end-date"> ( Oxuyuram<input type="checkbox" class="student" id="end-date" /> </label> )
+                    </h6>
+
+                    <input type="date" class="form-control end-date" name="">
+                    <small class="edate-error">Bitirdiyiniz tarixi qeyd eidn</small><br />
+
+                    <button class="butt butt-gray mt-3"> Təstiqlə </button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="univers">
+
+        @foreach (var item in Model.Universities)
+        {
+
+            <div class="about-section mb-2" id="@item.id">
+
+                <div class="about-aside main-back">
+                    <small class="p-name-error">İxtisasınızı qeyd eidn (maximum 60 hərf)</small>
+                    <div class="w-100">
+                        <div class="aside-content">
+                            <span>@item.Profession</span>
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                            {
+                                <input maxlength="60" type="text" class="profession-name">
+                                <i class="fas fa-check control-icon save"></i>
+                                <i class="fas fa-pen control-icon edit"></i>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="about-body" id="University">
+                    <div class="body-header">
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                        {
+                            <a href="#" class="main-back-color control-icon save"> <i class="fas fa-check"></i> </a>
+                            <a href="#" class="main-back-color ml-2 control-icon edit"> <i class="fas fa-pen"></i> </a>
+                            <a href="#" class="main-back-color ml-2 control-icon remove"> <i class="fas fa-trash-alt ml-2"></i> </a>
+                        }
+                    </div>
+                    <span>
+
+                        @item.Name
+
+                    </span>
+                    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                    {
+                        <textarea type="text" maxlength="120" class="form-control university-name"></textarea>
+                        <small class="univer-name-error">Müəsisənin adını boş buraxmayın</small>
+                        <i class="ml-2">
+                            @item.StartDate.ToString("dd.MM.yyyy") -
+
+                            @if (item.EndDate.ToString() == "0001-01-01")
+                            {
+                                <span> Oxuyuram </span>
+                            }
+                            @item.EndDate.ToString("dd.MM.yyyy")
+                        </i>
+                    }
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="main-section-header mt-4">
+        <h6 class="mb-4"> Sosial fəaliyyət </h6>
+        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+        {
+            <a href="#" class="main-color add-form"> Əlavə et </a>
+        }
+    </div>
+    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+    {
+        <div class="socials-add dropdown">
+            <div class="socials-form">
+
+                <h6 class="main-color">Təşkilatın adı</h6>
+                <input type="text" maxlength="60" class="form-control company-name" name="">
+                <small class="cname-error">Təşkilatın adını qeyd edin (maximum 60 hərf)</small>
+
+                <h6 class="main-color">Fəaliyyət sahəniz</h6>
+                <input type="text" maxlength="60" class="form-control position-name" name="">
+                <small class="pname-error">vəzifənizi qeyd edin (maximum 60 hərf)</small>
+
+                <h6 class="main-color">Fəaliyyət barəsində</h6>
+                <textarea name="" maxlength="250" id="" class="form-control about-act" rows="5"></textarea>
+
+                <button class="butt butt-gray mt-3"> Təstiqlə </button>
+                <small class="about-act-error">Gördüyünüz işlər barədə danışın (maximum 250 hərf)</small>
+            </div>
+        </div>
+    }
+    <div class="social-acts">
+
+        @foreach (var item in Model.SosialActs)
+        {
+
+            <div class="about-section mb-4" id="@item.id">
+                <div class="about-aside main-back">
+                    <small class="c-name-error">Təşkilat adını qeyd eidn (maximum 60 hərf)</small>
+                    <small class="p-name-error">Vəzifənizi qeyd eidn (maximum 60 hərf)</small>
+                    <div class="w-100">
+                        <div class="aside-content">
+                            <span>@item.Company</span>
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                            {
+                                <input maxlength="60" type="text" id="company-name">
+                                <i class="fas fa-check control-icon save"></i>
+                                <i class="fas fa-pen control-icon edit"></i>
+                            }
+                        </div>
+
+                        <div class="aside-content">
+                            <span>@item.Position</span>
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                            {
+                                <input maxlength="60" type="text" id="position-name">
+                                <i class="fas fa-check control-icon save"></i>
+                                <i class="fas fa-pen control-icon edit"></i>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="about-body" id="about-social">
+                    <div class="body-header">
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                        {
+                            <a href="#" class="main-back-color control-icon save"> <i class="fas fa-check"></i> </a>
+                            <a href="#" class="main-back-color ml-2 control-icon edit"> <i class="fas fa-pen"></i> </a>
+                            <a href="#" class="main-back-color ml-2 control-icon remove"> <i class="fas fa-trash-alt ml-2"></i> </a>
+                        }
+                    </div>
+                    <span>
+                        @item.About
+                    </span>
+                    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                    {
+                        <textarea maxlength="250" class="form-control" rows="3"></textarea>
+                        <small class="c-about-error">Haqqınızdakı məlumatı boş buraxmayın (maximum 250 hərf)</small>
+                    }
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+
+</section>
+<script src="~/js/Profile/about.js"></script>
+<script src="~/js/Profile/main.js"></script>
+<!--=============================== Partial view area ===================================-->

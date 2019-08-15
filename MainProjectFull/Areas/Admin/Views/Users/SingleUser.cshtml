@@ -1,0 +1,468 @@
+﻿@model MainProjectFull.Areas.Admin.ViewModel.ProfileVM
+@{ 
+    string user = "", admin = "";
+    if(Model.User.Status == "User")
+    {
+        user = "selected";
+    }
+    else
+    {
+        admin = "selected";
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("_Header")
+
+<body id="page-top">
+
+    @await Html.PartialAsync("_Navbar")
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Icon Cards-->
+            <div class="row">
+                <!-- DataTables Example -->
+
+                <div class="w-100">
+
+                    <div class="card col-lg-10 offset-1 p-0 mb-4">
+
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    @Model.User.Name @Model.User.Surname
+                                    @if (Model.Profile.Disabled)
+                                    {
+                                        <style> .card-header{ background: rgba(255, 0, 0, 0.116); } </style>
+                                        <span> - İstifadəçi ban edilib</span>
+                                    }
+                                </div>
+                                <div>
+                                    @if (!Model.Profile.Disabled)
+                                    {
+                                        <button data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" class="btn btn-warning"><i class="fas fa-exclamation-triangle"></i> Xəbərdarlıq yaz </button>
+                                    }
+                                    @if (!Model.Profile.Disabled)
+                                    {
+                                        <button data-toggle="collapse" href="#multiCollapseExample2" aria-expanded="false" class="btn btn-danger ml-2"><i class="fas fa-user-lock"></i> Ban et ! </button>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Free","Actions",new {id = Model.User.Id })" onclick="return confirm('@Model.User.Name @Model.User.Surname adlı istifadəçini bandan çıxarmağa əminsiz?')" class="btn btn-success ml-2"> <i class="fas fa-user-check"></i> Bandan çıxar </a>
+                                    }
+                                </div>
+                            </div>
+                            <!-- Form for send warning to user -->
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <form class="mt-3" action="@Url.Action("SendWarning","Actions")" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <textarea placeholder="Xəbərdarlıq" name="text" class="form-control"></textarea>
+                                    <input type="hidden" name="id" value="@Model.User.Id" />
+                                    <input class="btn btn-success mt-2" type="submit" value="Göndər" />
+                                </form>
+                            </div>
+                            <!-- Form for ban user -->
+                            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                <form class="mt-3" action="@Url.Action("Ban","Actions")" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <textarea placeholder="Banın səbəbi" name="text" class="form-control"></textarea>
+                                    <input type="hidden" name="id" value="@Model.User.Id" />
+                                    <input onclick="return confirm('@Model.User.Name @Model.User.Surname adlı istifadəçini ban etməyə əminsiz?')" class="btn btn-danger mt-2" type="submit" value="Ban et !" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img class="w-100 user-img" src="~/Content/Images/Users/@Model.Profile.Photo" alt="Alternate Text" />
+                                    <button class="btn btn-primary mt-4 w-100 change-image"><i class="fas fa-image"></i> Şəkli dəyiş</button>
+                                </div>
+                                <div class="col-lg-9">
+
+                                    <form action="@Url.Action("Edit","Users")" method="post" enctype="multipart/form-data">
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-user"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Name, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-user"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Surname, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3 border border-top-0 border-left-0 border-right-0 border-danger">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-at text-danger"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Email, null, new { @class = "form-control" })
+                                        </div>
+
+                                        <!-- User Roles -->
+                                        <div class="input-group mb-3 border border-top-0 border-left-0 border-right-0 border-danger">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-user-shield text-danger"></i> </span>
+                                            </div>
+                                            <select name="User.Status" class="form-control">
+                                                <option @user value="User">User</option>
+                                                <option @admin value="Admin">Admin</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-phone"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.PhoneNumber, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-address-book"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Address, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-briefcase"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Profession, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fab fa-facebook"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Facebook, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fab fa-behance"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Behance, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fab fa-github"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Github, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fab fa-linkedin"></i> </span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.User.Linkedin, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-id-card-alt"></i> </span>
+                                            </div>
+                                            @Html.TextAreaFor(m => m.User.About, new { @class = "form-control" })
+                                        </div>
+                                        <input type="file" name="file" class="invisible" />
+                                        @Html.HiddenFor(m => m.User.Id)
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="Yaddaşa sal" class="btn btn-success" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-10 offset-1">
+                        <div class="card w-100 mt-4">
+                            <div class="card-header">
+                                <i class="fas fa-brain"></i>
+                                Bacarıqları
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Bildiyi sahə</th>
+                                                <th>Redaktə</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Adı</th>
+                                                <th>Şəkillər</th>
+                                                <th>Sil</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            @foreach (var item in Model.SkillHeaders)
+                                            {
+                                                foreach (var pear in Model.SkillsHeaders.Where(sh => sh.SkillsHeaderId == item.id))
+                                                {
+                                                    var skill = Model.Position.FirstOrDefault(p => p.id == pear.PositionId);
+
+                                                    <tr>
+                                                        <td>
+                                                            <img style="height:40px;width:40px;" src="~/Content/Images/Skillicons/@skill.Icon" alt="@skill.Name" />
+                                                            @skill.Name
+                                                        </td>
+                                                        <td>
+                                                            <form action="@Url.Action("RemoveSkill", "Users")" method="post">
+                                                                @Html.AntiForgeryToken()
+                                                                <input type="text" name="id" class="d-none" value="@skill.id" />
+                                                                <input type="text" name="userId" class="d-none" value="@Model.User.Id" />
+                                                                <input type="submit" value="Bacarığı sil" class="btn btn-danger text-white" onclick="return confirm('biliyi istifadəçinin bilik siyahısından silməyə əminsiniz?')">
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 offset-1">
+                        <div class="card w-100 mt-4">
+                            <div class="card-header">
+                                <i class="fas fa-image"></i>
+                                Portfoliosu
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Adı</th>
+                                                <th>Şəkillər</th>
+                                                <th>Sil</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Adı</th>
+                                                <th>Şəkillər</th>
+                                                <th>Sil</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            @foreach (var item in Model.Portfolio)
+                                            {
+                                                <tr>
+                                                    <td>@item.Name</td>
+                                                    <td>
+                                                        @foreach (var img in Model.PortfolioImages.Where(img => img.PortfolioId == item.id))
+                                                        {
+                                                            <a href="~/Content/Images/PortImages/@img.Name" data-lightbox="@item.Name.Substring(0,3)" title="@item.Name">
+                                                                <img src="~/Content/Images/PortImages/@img.Name" style="height:60px;width:60px;object-fit:cover" />
+                                                            </a>
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        <form action="@Url.Action("RemovePort","Users")" method="post">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="text" name="id" class="d-none" value="@item.id" />
+                                                            <input type="text" name="userId" class="d-none" value="@Model.User.Id" />
+                                                            <input type="submit" value="Portfolionu sil" class="btn btn-danger text-white" onclick="return confirm('Portfolionu tamamilə silməyə əminsiniz?')">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 offset-1">
+                        <div class="card w-100 mt-4">
+                            <div class="card-header">
+                                <i class="fas fa-briefcase"></i>
+                                İş yerləri
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Vəzifəsi</th>
+                                                <th>Şirkətin adı</th>
+                                                <th>İş haqqında</th>
+                                                <th>Redaktə</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Experiences)
+                                            {
+                                                var company = Model.Companies.FirstOrDefault(c => c.id == item.CompanyId);
+
+                                                <tr>
+                                                    <td>@item.Position</td>
+                                                    <td>
+                                                        @company.Name
+                                                    </td>
+                                                    <td>
+                                                        @item.About
+                                                    </td>
+                                                    <td>
+                                                        <form action="@Url.Action("RemoveExperience","Users")" method="post">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="text" name="id" class="d-none" value="@item.id" />
+                                                            <input type="text" name="userId" class="d-none" value="@Model.User.Id" />
+                                                            <input type="submit" value="İş yerini sil" class="btn btn-danger text-white" onclick="return confirm('İş təcrübəsini tamamilə silməyə əminsiniz?')">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 offset-1">
+                        <div class="card w-100 mt-4">
+                            <div class="card-header">
+                                <i class="fas fa-graduation-cap"></i>
+                                Təhsil yerləri
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Təhsil yeri</th>
+                                                <th>İxtisası</th>
+                                                <th>Daxil olduğu il</th>
+                                                <th>Bitirdiyi il</th>
+                                                <th>Redaktə</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Universities)
+                                            {
+                                                <tr>
+                                                    <td>@item.Name</td>
+                                                    <td>
+                                                        @item.Profession
+                                                    </td>
+                                                    <td>
+                                                        @item.StartDate.ToString("yyyy-MM-dd")
+                                                    </td>
+                                                    <td>
+                                                        @item.EndDate.ToString("yyyy-MM-dd")
+                                                    </td>
+                                                    <td>
+                                                        <form action="@Url.Action("RemoveUniversity","Users")" method="post">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="text" name="id" class="d-none" value="@item.id" />
+                                                            <input type="text" name="userId" class="d-none" value="@Model.User.Id" />
+                                                            <input type="submit" value="Təhsil yerini sil" class="btn btn-danger text-white" onclick="return confirm('Təhsil yerini tamamilə silməyə əminsiniz?')">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 offset-1">
+                        <div class="card w-100 mt-4">
+                            <div class="card-header">
+                                <i class="fas fa-icons"></i>
+                                Sosial fəaliyyətləri
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Fəaliyyət yeri</th>
+                                                <th>Vəzifəsi</th>
+                                                <th>Haqqında</th>
+                                                <th>Redaktə</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Socials)
+                                            {
+                                                <tr>
+                                                    <td>@item.Company</td>
+                                                    <td>
+                                                        @item.Position
+                                                    </td>
+                                                    <td>
+                                                        @item.About
+                                                    </td>
+                                                    <td>
+                                                        <form action="@Url.Action("RemoveSocial","Users")" method="post">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="text" name="id" class="d-none" value="@item.id" />
+                                                            <input type="text" name="userId" class="d-none" value="@Model.User.Id" />
+                                                            <input type="submit" value="Fəaliyyəti sil" class="btn btn-danger text-white" onclick="return confirm('Sosial fəaliyyəti tamamilə silməyə əminsiniz?')">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /.container-fluid -->
+                <!-- Sticky Footer -->
+                <footer class="sticky-footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright © Your Website 2019</span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <script>
+            $('.change-image').click(function () {
+                $('form').find('input[type="file"]').trigger('click');
+            });
+
+            $('form').find('input[type="file"]').on('change', function () {
+                readURL(this, $('.user-img'))
+            });
+
+            // Function loads image from input to img src
+            function readURL(input, img) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        img.attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+
+
+</body>
+@await Html.PartialAsync("_Footer")
+
+</html>

@@ -1,0 +1,226 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.SkillsVM
+
+<style>
+    .main-back {
+        background: @Model.CoverClass.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.CoverClass.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.CoverClass.Profile.TextColor;
+    }
+
+    .end-date a,
+    .start-date a {
+        color: #fff;
+    }
+</style>
+
+<section class="container skills-section">
+    <!-- Skills section Database urls -->
+    <div data-url="@Url.Action("GetSkillsAsync","Skills")" class="get-skills detach"></div>
+    <div data-url="@Url.Action("GetSkillHeaders","Skills")" class="get-headers detach"></div>
+    <div data-url="@Url.Action("GetSkillsHeadersPear","Skills")" class="get-headers-skills detach"></div>
+    <div data-url="edit/url" class="edit-skills detach"></div>
+    <div data-url="@Url.Action("CreateSkill","Skills")" class="add-skills detach"></div>
+    <div data-url="@Url.Action("RemoveSkill","Skills")" class="remove-skills detach"></div>
+    <div data-url="@Url.Action("RemoveTopic","Skills")" class="remove-topic detach"></div>
+    <div data-url="@Url.Action("SaveAsync","Skills")" class="add-topic detach"></div>
+    <div data-url="@Url.Action("EditTopic","Skills")" class="edit-topic detach"></div>
+    <div data-url="@Url.Content("~/Content/Images/Skillicons/")" class="skills-img detach"></div>
+
+    <div data-url="@Url.Action("GetLangs","Skills")" class="get-langs detach"></div>
+    <div data-url="@Url.Action("SaveLang","Skills")" class="save-lang detach"></div>
+    <div data-url="@Url.Action("RemoveLang","Skills")" class="remove-lang detach"></div>
+    <!-- / Skills section Database urls -->
+
+
+    <div class="main-section-header">
+        <h6 class="mb-4">Bilikləri</h6>
+        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+        {
+            <a href="#collapse-skills" class="hover-underline main-color add-form">Yeni mövzu yarat</a>
+        }
+    </div>
+    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+    {
+        <div class="skills-add dropdown">
+            <small class="d-block w-100">Mövzu əlavsi</small>
+
+            <div class="skills-form">
+                <h6>Mövzu başlığı</h6>
+                <input type="text" class="form-control topic-header" name="">
+
+                <h6>Bilikləriniz</h6>
+                <div class="search-area">
+                    <input type="text" class="form-control search-skills" name="" id="">
+                    <ul></ul>
+                    <small>
+                        <a href="#collapse-add-skills" data-toggle="collapse">Yenisini yarat</a>
+                        <i title="Axtardığınız siyahıda yoxdursa yenisini yaradın" class="fas fa-question-circle inform ml-1"></i>
+                    </small>
+                </div>
+                <div class="collapse" id="collapse-add-skills">
+                    <h6>Logo yöklə</h6>
+                    <button class="butt butt-gray skills-logo-upload">Şəkil yüklə</button>
+                    <img src="" alt="">
+                    <br />
+                    <select class="mt-2 skill-type">
+                        <option selected value="code">Proqramlaşdırma</option>
+                        <option value="design">Qrafik dizayn</option>
+                    </select>
+                    <a href="#" data-url="" class="mt-2 d-block send-new-skill">
+                        <small>Yeni bacarığı göndər</small>
+                    </a>
+                    <small class="text-success">Yeni bacarığınız administrasiya tərəfindən yoxlanılmağa göndərildi</small>
+                    <small class="text-danger skill-logo">Lütfən bacardığınız sahənin loqosunu yükləyin</small>
+                    <small class="text-danger skill-name">Lütfən bacardığınız sahənin adını yazın</small>
+                    <small class="text-danger skill-topic-head">Lütfən Bacarığın mövzu başlığını yazın</small>
+
+                    <input type="file" class="form-control hidden-input" accept=".jpg,.png" name="">
+                </div>
+
+                <div class="added-skills"></div>
+
+                <input type="submit" data-url="" class="butt butt-gray mt-4" value="Təstiqlə">
+
+                <div class="mt-3">
+                    <small class="text-danger select-skill"> Lütfən bir mövzu seçin </small>
+                    <small class="text-danger select-skill-header"> Lütfən mövzu başlığı yazın </small>
+                </div>
+            </div>
+        </div>
+    }
+        <div class="skills-topics">
+
+
+            @foreach (var item in Model.SkillsHeader)
+            {
+                <div class="skills-topic" id="@item.id" data-url="addingskillurl">
+                    <h6 class="main-back">
+                        <div class="position-relative">
+                            <span class="skills-header"> @item.Name </span>
+                            <div class="skills-edit-controls">
+                                <input type="text" class="skills-name" name="">
+                                <button class="butt butt-gray skills-name-save">Yadda saxla</button>
+                            </div>
+                        </div>
+                        <div class="add-controls search-area">
+                            <input type="text" class="">
+                            <ul></ul>
+                        </div>
+                        <div class="">
+                            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                            {
+                                <a href="#" data-id="3" class="skills-name-add text-white control-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <a href="#" data-id="3" class="skills-name-edit text-white control-icon ml-2">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                                <a href="#" data-url="" class="skills-topic-remove text-white control-icon">
+                                    <i class="fas fa-trash-alt ml-2"></i>
+                                </a>
+                            }
+                        </div>
+                    </h6>
+                    <div class="skills-list">
+                        @foreach (var pear in Model.SkillsHeaderPosition.Where(sh => sh.SkillsHeaderId == item.id))
+                        {
+                            var skill = Model.Position.FirstOrDefault(p => p.id == pear.PositionId);
+
+
+                            <div class="skills bg-white">
+                                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                                {
+                                    <a href="#" class="control-icon" data-url="" data-id="@skill.id"> <i class="fas fa-times"></i></a>
+                                }
+                                <img src="~/Content/Images/Skillicons/@skill.Icon" alt="">
+                                @skill.Name
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+        <div class="language-conatiner">
+            <div class="main-section-header">
+                <h6 class="mb-4">Bildiyi dillər</h6>
+                @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                {
+                    <a href="#collapse-skills" class="hover-underline main-color add-form"> Əlavə et </a>
+                }
+            </div>
+
+
+            <div class="lang-add dropdown">
+
+                <div class="lang-form exper-form">
+
+                    <div class="search-area">
+                        <h6>Bildiyiniz dil</h6>
+
+                        <label for="search-input">
+                            <img data-src="../../images/" src="" class="search-company-logo">
+                            <input type="text" id="search-input" class="form-control search-lang" name="">
+
+                            <a href="#" class="cancel main-back-color"> <i class="fa fa-times"></i> </a>
+                            <input type="hidden" value="" class="l-id">
+                        </label>
+                        <small class="text-danger lang-error">Lütfən dil seçin</small>
+                        <ul data-src="../../Content/images/Flags/"></ul>
+                    </div>
+                    <ul data-src="../../Content/images/Flags/"></ul>
+
+                    <h6>Bilik səviyyəsi</h6>
+                    <select class="form-control lang-level">
+                        <option value="Elementary">Elementary</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Native">Native</option>
+                    </select>
+
+                    <input type="submit" data-url="" class="butt butt-gray mt-4" value="Təstiqlə">
+
+                    <div class="mt-3">
+                        <small class="text-danger select-skill"> Lütfən bir mövzu seçin </small>
+                        <small class="text-danger select-skill-header"> Lütfən mövzu başlığı yazın </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lang-list" data-src="../../Content/images/Flags/">
+                @foreach (var pear in Model.UserLanguages)
+                {
+                    var lang = Model.Languages.FirstOrDefault(l => l.id == pear.LanguagesId);
+
+
+                    <div class="skills bg-white">
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.CoverClass.User.Email)
+                        {
+                            <a href="#" class="control-icon" data-url="" data-id="@lang.id"> <i class="fas fa-times"></i></a>
+                        }
+                        <img src="~/Content/Images/Flags/@lang.Icon" alt="">
+                        @lang.Name - @pear.Level
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+
+    </section>
+
+<script src="~/js/Profile/skills.js"></script>
+<script src="~/js/Profile/main.js"></script>

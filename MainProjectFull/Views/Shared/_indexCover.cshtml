@@ -1,0 +1,27 @@
+﻿       <!-- Main cover  -->
+<article>
+    <section class="main-cover">
+        <div class="container">
+            <div class="main-content">
+                <h2> Yaradıcı insanlara <mark>daha yaxın ol!</mark>  </h2>
+                <div class="input-container">
+                    <div class="form">
+                        <input type="text" placeholder="#axtarış" name="">
+                        <button data-url="@Url.Action("GetByName","Search")" class="main-search"> <i class="fas fa-search"></i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+<!-- Main cover end -->
+<!-- Search menu -->
+<article>
+    <section class="search-menu">
+        <ul class="ul-menu section-menu">
+            <li id="port_section"><a href="" data-url="@Url.Action("Index","Home")" class="active">Portfolio</a></li>
+            <li id="cv_section"><a href="Cv" data-url="@Url.Action("Cv","Search")">CV</a></li>
+            <li id="person_section"><a href="Person" data-url="@Url.Action("Person","Search")">İnsanlar</a></li>
+        </ul>
+    </section>
+</article>

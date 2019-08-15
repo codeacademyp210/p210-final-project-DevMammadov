@@ -1,0 +1,40 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.MainPageVM
+
+<section class="main-section container">
+    <aside>
+        <h6>İzlədikləri</h6>
+        <div class="folow-list">
+
+            @if (Model.Folows.Count <= 0)
+            {
+                <div class="w-100 text-center mt-4 col text">
+                    <span class="d-block"> İzlədiyi yoxdur </span>
+                    <a class="d-block" href="#"> <i class="fa fa-user-friends"></i> Dostlar tap </a>
+                </div>
+            }
+
+            @foreach (var item in Model.Folows)
+            {
+
+                <div class="folow-img">
+                    <a href="#">
+                        <img src="~/Content/Images/Users/@item.img" alt="">
+
+                        <span>@item.Name @item.Surname</span>
+                    </a>
+                </div>
+
+            }
+
+            @if (Model.Folows.Count > 6)
+            {
+                <div class="more-folowers">
+                    <a href="#">Show folower list</a>
+                </div>
+            }
+
+        </div>
+    </aside>
+</section>
+<script src="~/js/Profile/main.js"></script>

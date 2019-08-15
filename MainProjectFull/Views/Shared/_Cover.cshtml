@@ -1,0 +1,185 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.CoverClass
+
+<style>
+    .main-back {
+        background: @Model.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.Profile.TextColor;
+    }
+</style>
+
+<section class="container cover-section">
+
+    <div class="change-cover" data-url="@Url.Action("ChangeCover","Profile")"></div>
+    <div class="change-photo" data-url="@Url.Action("ChangePhoto","Profile")"></div>
+
+    <div class="cover" data-url="@Url.Content("~/Content/Images/Covers/")" style="background-image: url('../../Content/images/Covers/@Model.Profile.Cover')">
+
+        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.User.Email)
+        {
+            <div class="upload-cover-img">
+                <a href="#">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <input class="hidden-input cover-img" type="file" accept=".jpg,.png" name="cover-img">
+            </div>
+        }
+        <!-- Profile picture -->
+        <div class="profile-picture">
+
+            <img src="~/Content/Images/Users/@Model.Profile.Photo" draggable="false" alt="">
+
+            <!-- Upload img button -->
+            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.User.Email)
+            {
+                <div class="upload-profile-img">
+                    <a href="#">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                    <input class="hidden-input profile-img" accept=".jpg,.png" type="file">
+                </div>
+            }
+        </div>
+
+        <!-- User info -->
+        <div class="user-info">
+            <h3><a href="#">@Model.Profile.User.Name @Model.Profile.User.Surname </a></h3>
+            <h5> @Model.Profile.User.Profession </h5>
+            <div class="user-statistics">
+                <i class="fas fa-eye"></i> <span> @Model.views </span>
+                <i class="fas fa-user-friends"></i> <span>@Model.folowers</span>
+                <i class="fas fa-user-check"></i> <span>@Model.folowings</span>
+            </div>
+
+            @if (SignInManager.IsSignedIn(User) && User.Identity.Name != Model.User.Email)
+            {
+                <div class="btn-group mt-3">
+                    @if (Model.Profile.MessageButton == true)
+                    {
+                        <a href="@Url.Action("Index","Message",new { id = Model.User.Id })" class="butt butt-gray main-back-color"><i class="fas fa-envelope main-back-color"></i> Mesaj yaz</a>
+                    }
+
+                    <button data-url="@Url.Action("Folow","Profile")" data-id="@Model.Profile.id" class="butt butt-gray ml-1 btn-folow">
+                        @if (Model.isFolowing)
+                        {
+                            <i class="fas fa-user-check main-back-color"></i>
+                            <span>İzləyirsiz</span>
+                        }
+                        else
+                        {
+                            <i class="fas fa-user "></i>
+                            <span>İzlə</span>
+                        }
+
+                    </button>
+                    <button class="butt butt-gray ml-1 open-menu">...</button>
+                </div>
+                <ul class="ul-menu-vertical">
+                    @if (Model.isFolowing)
+                    {
+                      <li><a href="#" data-id="@Model.Profile.id" data-url="@Url.Action("Unfollow", "Profile")" class="main-back-color unfolow">İzləməni burax</a></li>
+                    }
+                    else
+                    {
+                        <li></li>
+                    }
+                    <li><a href="#" class="main-back-color block-user" id="@Model.User.Id">Blok et</a></li>
+                </ul>
+            }
+        </div>
+    </div>
+</section>
+<!---------------------------- Profile navbar -->
+<section class="container">
+    <div class="profile-navbar">
+        <ul class="ul-menu">
+            <li class="space"></li>
+            <li class="active" id="About">
+                @if (SignInManager.IsSignedIn(User) && Model.Profile.Disabled)
+                {
+                    <a class="link" href="@Url.Action("Ban","Home",new {id = Model.Profile.id })">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+                else
+                {
+                    <a href="About" data-url="@Url.Action("About","Profile")">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+            </li>
+            <li id="Skills">
+                @if (SignInManager.IsSignedIn(User) && Model.Profile.Disabled)
+                {
+                    <a class="link" href="@Url.Action("Ban","Home",new {id = Model.Profile.id })">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+                else
+                {
+                    <a href="Skills" data-url="@Url.Action("Skills","Profile")">
+                        <i class="fa fa-robot"></i> Bilikləri
+                    </a>
+                }
+
+            </li>
+            <li id="Portfolio">
+                @if (SignInManager.IsSignedIn(User) && Model.Profile.Disabled)
+                {
+                    <a class="link" href="@Url.Action("Ban","Home",new {id = Model.Profile.id })">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+                else
+                {
+                    <a href="Portfolio" data-url="@Url.Action("Portfolio","Profile")">
+                        <i class="fa fa-images"></i> Portfolio
+                    </a>
+                }
+
+            </li>
+            <li id="Cv">
+                @if (SignInManager.IsSignedIn(User) && Model.Profile.Disabled)
+                {
+                    <a class="link" href="@Url.Action("Ban","Home",new {id = Model.Profile.id })">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+                else
+                {
+                    <a href="Cv" data-url="@Url.Action("Cv","Profile")">
+                        <i class="fa fa-address-card"></i> CV
+                    </a>
+                }
+
+            </li>
+            <li id="Experience">
+                @if (SignInManager.IsSignedIn(User) && Model.Profile.Disabled)
+                {
+                    <a class="link" href="@Url.Action("Ban","Home",new {id = Model.Profile.id })">
+                        <i class="fa fa-user"></i> Haqqında
+                    </a>
+                }
+                else
+                {
+                    <a href="Experience" data-url="@Url.Action("Experience","Profile")">
+                        <i class="fa fa-briefcase"></i> İş təcrübəsi
+                    </a>
+                }
+
+            </li>
+
+        </ul>
+
+    </div>
+</section>
+

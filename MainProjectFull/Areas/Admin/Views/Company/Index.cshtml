@@ -1,0 +1,126 @@
+﻿@model MainProjectFull.Areas.Admin.ViewModel.CompanyVM
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("_Header")
+
+<body id="page-top">
+
+    @await Html.PartialAsync("_Navbar")
+
+
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Overview</li>
+            </ol>
+
+            <!-- Icon Cards-->
+            <div class="row">
+            
+                <div class="col-lg-8 offset-lg-1 pb-4">
+
+                    <div class="text-center">
+                        @if (Model.Company != null)
+                        {
+                            <img src="~/Content/Images/CompanyLogo/@Model.Company.Icon" style="height:130px;width:130px;" alt="Alternate Text" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/Images/CompanyLogo/none.png" style="height:130px;width:130px;" alt="Alternate Text" />
+                        }
+
+                    </div>
+
+                    <form action="@Url.Action(Model.Action,"Company")" enctype="multipart/form-data" method="post" class="mt-4">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-briefcase"></i> </span>
+                            </div>
+                            @Html.TextBoxFor(m => m.Company.Name, null, new {@class = "form-control",required ="required",placeholder = "Company name" })
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fas fa-image"></i> </span>
+                            </div>
+                            <input type="file" name="file" class="form-control">
+                        </div>
+
+                        @Html.HiddenFor(m => m.Company.id)
+
+                        <div class="input-group mb-3">
+                            <input type="submit" value="@Model.Button" class="btn btn-success">
+                        </div>
+
+                    </form>
+
+                </div>
+
+            <!-- DataTables Example -->
+            <div class="card mb-3 w-100">
+                <div class="card-header">
+                    <i class="far fa-building"></i>
+                    Kompaniyaların cədvəli
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Adı</th>
+                                    <th>Şəkli</th>
+                                    <th>Redaktə et</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Adı</th>
+                                    <th>Şəkli</th>
+                                    <th>Redaktə et</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+
+                                @foreach (var item in Model.Companies)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td> <img src="~/Content/Images/CompanyLogo/@item.Icon" style="height:40px;width:40px;" alt="Alternate Text" /></td>
+                                        <td> <a href="@Url.Action("Edit","Company",new { id = item.id })" class="btn btn-warning w-100"> Redaktə et </a> </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    </div>
+
+</body>
+@await Html.PartialAsync("_Footer")
+
+</html>

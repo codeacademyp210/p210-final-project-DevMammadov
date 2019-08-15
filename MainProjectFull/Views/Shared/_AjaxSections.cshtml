@@ -1,0 +1,36 @@
+﻿
+<script>
+
+    $('.profile-navbar ul li a').not('a.link').click(function (e) {
+        e.preventDefault();
+
+        $(".profile-navbar .ul-menu li").removeClass('active');
+        $(this).parent().addClass('active');
+
+        //let baseUrl = [location.protocol, '//', location.host, location.pathname].join('')
+        // if window locations ends with '/'
+        let section = $(this).attr('href');
+        let profileID = $("#partials").attr("data-profile");
+
+        if (history.pushState) {
+
+            window.history.replaceState({ path: section }, "", "/Profile/" + section + "/" + profileID);
+        } else {
+            document.location.href = "Profile/" + section;
+        }
+
+
+    $.ajax({
+            url: $(this).attr('data-url'),
+            type: "GET",
+            data: {
+                "id": profileID
+            },
+            success: function (response, status) {
+            
+                $("#partials").html(response);
+            }
+        });
+});
+</script>
+

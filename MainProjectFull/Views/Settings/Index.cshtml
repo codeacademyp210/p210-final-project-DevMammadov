@@ -1,0 +1,293 @@
+﻿@model MainProjectFull.ViewModel.SettingsVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .main-back {
+        background: @Model.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.Profile.TextColor;
+    }
+</style>
+
+<main>
+    <section class="container settings">
+
+        <div data-url="@Url.Action("Edit","Settings")" class="edit-user-info-url"></div>
+        <div data-url="@Url.Action("Security","Settings")" class="edit-security-url"></div>
+        <div data-url="@Url.Action("Edit","Profile")" class="edit-profile-url"></div>
+        <div data-url="@Url.Action("Unblock","Settings")" class="edit-blocklist-url"></div>
+
+
+        <div class="profile-link">
+            <a href="@Url.Action("About","Profile",new { id = Model.Profile.id })">
+                <img src="~/Content/Images/Users/@Model.Profile.Photo" alt="">
+                <span class="main-color"> @Model.User.Name @Model.User.Surname </span>
+            </a>
+        </div>
+        <ul class="ul-menu-vertical">
+            <li class="settings-info">
+                <div class="content-header">
+                    <div>
+                        <i class="fas fa-user main-back-color"></i>
+                        Şəxsi informasiya
+                    </div>
+                    <div class="control-icons">
+                        <a class="main-back-color save" href="#">
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a class="main-back-color edit" href="#">
+                            <i class="fas fa-pen ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="settings-content d-flex">
+                    <div>
+                        <span class="key">Ad: </span>
+                        <span class="personal-info">
+                            <span class="span-name value">@Model.User.Name</span>
+                            <input type="text" class="form-control user-name">
+                        </span>
+                    </div>
+                    <div class="ml-4">
+                        <span class="key">Soyad: </span>
+                        <span class="personal-info">
+                            <span class="span-surname value">@Model.User.Surname</span>
+                            <input type="text" class="form-control user-surname">
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li class="settings-security">
+                <div class="content-header">
+                    <div>
+                        <i class="fas fa-lock main-back-color"></i>
+                        Təhlükəsizlik
+                    </div>
+                    <div class="control-icons">
+                        <a href="#">
+                            <i class="fas fa-check main-back-color save"></i>
+                            <i class="fas fa-pen ml-2 main-back-color edit"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="settings-content">
+                    <div>
+                        <span class="key">Şifrə: </span>
+                        <span class="personal-info">
+                            *********
+                        </span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Köhnə şifrə" class="form-control old-password mt-1 w-25">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Yeni şifrə" class="form-control new-password mt-2 w-25">
+                        <small class="mt-2 password-error"> Köhnə parol səhvdir </small>
+                    </div>
+                </div>
+
+            </li>
+            <li class="settings-profile">
+
+                <div class="content-header">
+                    <div>
+                        <i class="fas fa-id-badge main-back-color"></i>
+                        Profil
+                    </div>
+
+                </div>
+                <div class="settings-content">
+                    <div class="d-flex">
+                        <span class="key d-block">Profil rəngi: </span>
+                        <div class="personal-info d-flex">
+
+                            <div class="color-settings main-back current-color"></div>
+
+                            <div class="other-color">
+                                <div id="blueviolet" class="color-settings "></div>
+                                <div id="orange" class="color-settings "></div>
+                                <div id="gray" class="color-settings "></div>
+                                <div id="green" class="color-settings "></div>
+                                <div id="cerulean" class="color-settings "></div>
+                                <div id="blue" class="color-settings "></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex mt-3">
+                        <span class="key d-block">Mesaj düyməsi: </span>
+                        <span class="personal-info">
+
+                            @if (Model.Profile.MessageButton == true)
+                            {
+                                <input id="msg" checked class="custom-chk" type="checkbox">
+                            }
+                            else
+                            {
+                                <input id="msg" class="custom-chk" type="checkbox">
+                            }
+
+                            <label for="msg" class="butt-msg"></label>
+                        </span>
+                    </div>
+                </div>
+
+            </li>
+
+
+
+
+
+            <li class="settings-connect">
+
+                <div class="content-header">
+                    <div>
+                        <i class="fas fa-mobile-alt main-back-color"></i>
+                        Əlaqə vasitələri
+                    </div>
+                    <div class="control-icons">
+                        <a class="main-back-color save" href="#">
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a class="main-back-color edit" href="#">
+                            <i class="fas fa-pen ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="settings-content">
+                    <div>
+                        <span class="key">Tel: </span>
+                        <span class="personal-info w-100">
+                            <span class="span-number value">@Model.User.PhoneNumber</span>
+                            <input type="text" class="form-control w-100 user-phone">
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="key">Ünvan: </span>
+                        <span class="personal-info w-100">
+                            <span class="span-address value"> @Model.User.Address </span>
+                            <input type="text" value="@Model.User.Address" class="form-control user-address">
+                        </span>
+                    </div>
+
+                    <div class="mt-2">
+                        <span class="key">
+                            Linkedin:
+                            @if (Model.User.Linkedin != null)
+                            {
+                                <i class="fas fa-check ml-2 main-back-color"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check ml-2 hidden-check main-back-color"></i>
+                            }
+                        </span>
+                        <span class="personal-info w-100">
+                            <input type="text" value="@Model.User.Linkedin" class="form-control user-linkedin">
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="key w-100">
+                            Github:
+                            @if (Model.User.Github != null)
+                            {
+                                <i class="fas fa-check ml-2 main-back-color"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check ml-2 hidden-check main-back-color"></i>
+                            }
+                        </span>
+                        <span class="personal-info  w-100">
+                            <input type="text" value="@Model.User.Github" class="form-control user-github">
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="key">
+                            Behance:
+                            @if (Model.User.Behance != null)
+                            {
+                                <i class="fas fa-check ml-2 main-back-color"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check ml-2 hidden-check main-back-color"></i>
+                            }
+                        </span>
+                        <span class="personal-info  w-100">
+                            <input type="text" value="@Model.User.Behance" class="form-control user-behance">
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="key">
+                            Facebook:
+                            @if (Model.User.Facebook != null)
+                            {
+                                <i class="fas fa-check ml-2 main-back-color"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check ml-2 hidden-check main-back-color"></i>
+                            }
+                        </span>
+                        <span class="personal-info w-100">
+                            <input type="text" value="@Model.User.Facebook" class="form-control user-facebook">
+                        </span>
+                    </div>
+                </div>
+
+            </li>
+
+
+
+
+
+
+
+
+            <li class="settings-block-list">
+
+                <div class="content-header">
+                    <div>
+                        <i class="fas fa-user-lock main-back-color"></i>
+                        Block list
+                    </div>
+                </div>
+                <div class="settings-content d-flex">
+
+                    @if (Model.Blocklist.Count <= 0)
+                    {
+                        <span>Block listiniz boşdur </span>
+                    }
+
+                    @foreach (var item in Model.Blocklist)
+                    {
+
+                        <div class="blocked-user">
+                            <span>@item.Name @item.Surname </span>
+                            <a id="@item.Id" href="#"> <i class="fas fa-times main-back-color"></i> </a>
+                        </div>
+                    }
+                </div>
+
+            </li>
+
+        </ul>
+    </section>
+</main>
+@section Styles{
+    <link rel="stylesheet" href="~/css/profile/main.css">
+}
+
+<script src="~/js/Profile/settings.js"></script>

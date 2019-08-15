@@ -1,0 +1,1185 @@
+body {
+     position: relative;
+}
+
+.container {
+    max-width: 1000px !important;
+}
+
+main {
+   overflow: hidden;
+   position: relative;
+}
+
+#partials{
+    overflow: hidden;
+}
+
+/* ----------------- Cover ------------*/
+
+.cover {
+    min-height: 40vh;
+    position: relative;
+    display: flex;
+    padding-top: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 240px;
+    position: relative;
+    bottom: -60px;
+    left: 30px;
+    border: 8px solid #fff;
+}
+
+    .profile-picture > img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+.upload-cover-img,
+.profile-picture .upload-profile-img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.upload-cover-img a i,
+.profile-picture .upload-profile-img a i {
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.308);
+    border: 1px solid rgba(206, 206, 206, 0.562);
+    padding: 10px;
+    border-radius: 100%;
+    visibility: hidden;
+    transition: all .2s ease 0s;
+}
+
+.upload-cover-img input {
+    margin-left: -300px;
+}
+
+.profile-picture:hover .upload-profile-img a i {
+    visibility: visible;
+}
+
+.cover:hover .upload-cover-img a i {
+    visibility: visible;
+}
+
+/* ----------- User info ----------- */
+.user-info {
+    margin-left: 60px;
+    position: relative;
+    padding-top: 60px;
+    background: transparent;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+.user-info h3 a,
+.user-info h5 {
+    color: #fff;
+}
+
+.user-statistics i {
+    margin-left: 5px;
+}
+
+.user-info ul {
+    position: absolute;
+    background: #fff;
+    transform: translateY(-70%);
+    right: -150px;
+    display: none;
+    width: 150px;
+}
+
+.user-info ul.opened{
+    display:block;
+}
+
+.user-info ul li a{
+    text-shadow:  0 0 0;
+}
+
+.user-info .btn-group .butt-gray{
+    text-shadow: none;
+}
+
+.user-info .btn-group .butt-gray:hover{
+    text-decoration: none;
+}
+
+.user-info ul li a:hover {
+    text-decoration: none;
+    background: rgb(243, 243, 243);
+}
+
+/* ----------- Navbar ---------- */
+.profile-navbar {
+    background-color: #fff;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+    .profile-navbar .ul-menu .space {
+        padding-left: 230px;
+        background: transparent
+    }
+
+    .profile-navbar .ul-menu li {
+        background: transparent;
+        padding: 0;
+    }
+
+        .profile-navbar .ul-menu li:not(:first-child) {
+            border-left: 1px solid rgb(230, 230, 230);
+        }
+
+        .profile-navbar .ul-menu li a {
+            padding: 15px 20px;
+            font-size: 16px;
+        }
+
+            .profile-navbar .ul-menu li a:hover {
+                text-decoration: underline;
+            }
+
+        .profile-navbar .ul-menu li.active {
+            background-color: rgb(240, 240, 240);
+        }
+
+        .profile-navbar .ul-menu li a i {
+            font-size: 16px;
+        }
+
+/* ==================== Main section =========== */
+/* Section header */
+.main-section-header {
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-section {
+    padding-top: 40px;
+    display: flex;
+}
+
+aside {
+    width: 250px;
+    overflow: hidden;
+}
+
+.folow-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -2px;
+    margin-right: -2px;
+    /* background: rgb(243, 243, 243); */
+    max-height: 220px;
+    min-height: 150px;
+}
+
+.folow-img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 2px;
+}
+
+    .folow-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .folow-img span {
+        font-size: 13px;
+        display: block;
+        position: absolute;
+        transform: translateY(-2%);
+        bottom: 0;
+        color: #fff;
+    }
+
+.more-folowers {
+    width: 100%;
+}
+
+    .more-folowers a {
+        font-size: 13px;
+    }
+
+        .more-folowers a:hover {
+            text-decoration: underline;
+        }
+
+/* ======== Search inputs ========== */
+
+.search-area {
+    position: relative;
+}
+
+.search-area ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-area ul li {
+    padding: 5px 0;
+    border-top: 1px solid rgb(247, 247, 247);
+}
+
+.search-area ul li a {
+    color: rgb(32, 32, 32);
+}
+
+.search-area ul li:hover {
+    background: rgb(245, 245, 245);
+}
+
+.search-area ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.search-area ul::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.search-area ul::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #487BBE;
+}
+
+/* Contorl icons */
+
+.control-icon {
+    font-size: 13px;
+    opacity: .7;
+}
+
+    .control-icon:hover {
+        opacity: 1 !important;
+    }
+
+/* ======================= Experience section ======*/
+
+.exper {
+    display: flex;
+    margin: 15px 0;
+}
+
+.experience-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.exper-aside {
+    display: flex;
+    flex-wrap: wrap;
+    width: 440px;
+    padding: 20px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.exper-aside img {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.exper-aside h6 {
+    margin: 0;
+    margin-top: 5px;
+    line-height: 9px;
+}
+
+.exper-aside h5{
+    font-size: 20px;
+}
+
+
+/* Experience date part */
+.end-date,
+.start-date {
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+    .start-date span {
+        letter-spacing: 1px;
+    }
+
+.exper-body {
+    padding: 10px;
+    border: 1px solid rgb(236, 236, 236);
+    border-left: 0;
+    width: 100%;
+    background: #fff;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+/* add Experience form */
+
+.form-control {
+    border: 0;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+/* input width image */
+
+.search-area > label {
+    background: #fff;
+    display: block;
+    width: 100%;
+    display: flex;
+    margin: 0px;
+}
+
+.search-company-logo {
+    height: 38px !important;
+    width: 30px;
+    object-fit: cover;
+    margin: 0 !important;
+    display: none;
+}
+
+.exper-form .search-area .cancel {
+    color: rgb(139, 139, 139);
+    margin-right: 10px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* About work section */
+
+.work-about {
+    display: block;
+    width: 100%;
+}
+
+    .work-about span {
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+textarea {
+    resize: none;
+}
+
+/* Experience About  Editing mode */
+
+.about-work-edit-controls {
+    display: none;
+    width: 100%;
+}
+
+.work-about textarea {
+    border: 1px solid rgb(236, 236, 236);
+}
+
+.exper-body.editing .about-work-edit-controls {
+    display: block;
+}
+
+.exper-body.editing .work-about span {
+    display: none;
+}
+
+.about-work-save {
+    display: none;
+}
+
+.exper-body.editing .about-work-save {
+    display: inline-block;
+}
+
+
+/*  Experience Start date editing mode  */
+.end-date .e-date-save,
+.start-date .s-date-save {
+    display: none;
+}
+
+.end-date .e-date-edit,
+.start-date .s-date-edit {
+    display: inline-block;
+}
+
+.end-date.editing .e-date-save,
+.start-date.editing .s-date-save {
+    display: inline-block;
+}
+
+.end-date.editing .e-date-edit,
+.start-date.editing .s-date-edit {
+    display: none;
+}
+
+.end-date .e-date-edit-controls,
+.start-date .s-date-edit-controls {
+    display: none;
+}
+
+.end-date.editing .e-date-edit-controls,
+.start-date.editing .s-date-edit-controls {
+    display: block;
+}
+
+.end-date span,
+.start-date span {
+    display: block;
+}
+
+.end-date.editing span,
+.start-date.editing span {
+    display: none;
+}
+
+/* ======== Drop down adding forms for all ====== */
+.skills-add,
+.univer-add,
+.edit-cv,
+.lang-add,
+.socials-add,
+.exper-add {
+    padding: 0px;
+    overflow: hidden;
+    height: 0px;
+    transition: all .2s ease-in-out 0s;
+}
+
+.exper-add.opened {
+    padding: 10px;
+    height: 640px;
+}
+
+.univer-add.opened {
+    padding: 10px;
+    height: 560px;
+}
+
+.lang-add.opened{
+    padding: 10px;
+    height: 300px;
+}
+
+.language-conatiner{
+    padding-top: 100px;
+}
+
+.lang-form,
+.socials-form,
+.skills-form,
+.exper-form {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.lang-form h6,
+.socials-form h6,
+.skills-form h6,
+.exper-form h6 {
+    margin-top: 20px;
+}
+
+.lang-form img,
+.add-controls img,
+.skills-form img,
+.exper-form img {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#present {
+    height: 15px;
+    width: 15px;
+    margin: 0 10px;
+}
+
+/* Exprerience errors  */
+.lang-error,
+.uName-error, .profName-error, .sdate-error, .edate-error,
+.s-date-error,
+.e-date-error,
+.edit-about-work-error,
+.s-date-error,
+.e-date-error,
+.about-work-error,
+.c-name-error {
+    display: none;
+}
+
+.skills{
+    min-width: 200px;
+}
+/* ================== About section ========== */
+.about-section {
+    display: flex;
+}
+
+.about-aside {
+    position: relative;
+    width: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+    .about-aside small {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        display: block;
+        width: 100%;
+        font-weight: bold;
+        display: none;
+    }
+
+    .about-aside .aside-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-aside > div > div:first-child > span {
+        font-weight: bold;
+    }
+
+    .about-aside > div input {
+        display: none;
+    }
+
+    .about-aside > div > div + div > span {
+        font-style: italic;
+    }
+
+.body-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.about-body span {
+    display: block;
+    padding: 7px;
+    padding-right: 20px;
+}
+
+.about-body a:hover {
+    opacity: .7;
+}
+
+.about-body {
+    border: 1px solid rgb(236, 236, 236);
+    border-left: 0;
+    border-radius: 6px;
+    background: #fff;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+    .socials-add small,
+    .about-body small {
+        margin-left: 10px;
+        color: red;
+        display: none;
+    }
+
+.socials-add small {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.about-body textarea {
+    display: none;
+    border: 1px solid rgb(236, 236, 236);
+}
+
+.socials-add.opened {
+    height: 490px;
+}
+
+.about-section .save {
+    display: none;
+    cursor: pointer;
+}
+
+.about-section .edit{
+    cursor: pointer;
+}
+/* --------- Editing --------- */
+
+.user-position.editing .edit,
+.user-position.editing span,
+.about-aside > div > div + div.editing .edit,
+.about-aside > div > div + div.editing span,
+.about-aside > div > div:first-child.editing .edit,
+.about-aside > div > div:first-child.editing span {
+    display: none;
+}
+
+.user-position.editing .save,
+.user-position.editing input,
+.about-aside > div > div + div.editing .save,
+.about-aside > div > div + div.editing input,
+.about-aside > div > div:first-child.editing .save,
+.about-aside > div > div:first-child.editing input {
+    display: block;
+}
+
+
+.about-body.editing span {
+    display: none;
+}
+
+.about-body.editing textarea {
+    display: block;
+}
+
+
+/* =========================== Skills section ==========*/
+
+.skills-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.skills-topic {
+    margin: 0 -5px;
+    margin-top: 60px;
+}
+
+.skills-topic h6 {
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.skills-edit-controls {
+    display: inline-block;
+    position: relative;
+    visibility: hidden;
+}
+
+/* skills header editing mode */
+
+.skills-editing .skills-edit-controls {
+    visibility: visible;
+}
+
+.skills-editing .skills-header {
+    display: none;
+}
+
+/* Skills adding mode */
+
+.add-controls {
+    visibility: hidden;
+}
+
+.skills-adding .add-controls {
+    visibility: visible;
+}
+
+.add-controls {
+    width: 400px;
+    margin-left: -300px;
+}
+
+    .add-controls input {
+        width: 100%;
+    }
+
+/* Skills */
+
+.skills {
+    position: relative;
+    border: 1px solid rgb(236, 236, 236);
+    width: auto;
+    display: inline-block;
+    padding-right: 10px;
+    border-left: 0;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+    .skills img {
+        height: 60px;
+        width: 60px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-right: 7px;
+    }
+
+    .skills a i {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: rgb(124, 124, 124);
+        visibility: hidden;
+        transition: all .1s ease;
+    }
+
+    .skills:hover i {
+        visibility: visible;
+    }
+
+.skills-add.opened {
+    padding: 10px;
+    height: 460px;
+}
+
+/* Selected skills from dropdown */
+
+.added-skills {
+    padding-top: 15px;
+}
+
+    .added-skills .skills img {
+        height: 30px;
+        width: 30px;
+    }
+
+/* create new skill errors*/
+.text-danger.skill-topic-head,
+.text-danger.select-skill,
+.text-danger.select-skill-header,
+.text-danger.skill-name,
+.text-danger.skill-logo,
+#collapse-add-skills .text-success {
+    display: none;
+}
+
+/* ===============================> Settings section */
+
+.settings {
+    padding-top: 30px;
+}
+
+.settings .profile-link {
+    font-weight: bold;
+}
+
+.settings .profile-link img {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.settings aside {
+    width: 100%;
+}
+
+.settings ul {
+    padding-top: 30px;
+    width: 100%;
+}
+
+.settings ul li {
+    border-bottom: 1px solid rgb(224, 224, 224);
+    padding: 15px 0;
+}
+
+.settings .content-header {
+display: flex;
+justify-content: space-between;
+}
+
+.settings-content {
+padding-left: 50px;
+padding-top: 20px;
+}
+
+.settings .settings-content .personal-info {
+    display: inline-block;
+    color: rgb(95, 95, 95);
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+.settings .ul-menu-vertical li a {
+    padding: 0;
+    display: inline-block;
+}
+
+.settings li .content-header .save,
+.settings-content input[type='text'] {
+    display: none;
+}
+
+.color-settings {
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background: red;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.hidden-check{
+    display: none;
+}
+
+.other-color {
+    display: flex;
+    overflow: hidden;
+    width: 0;
+    /* transition: all .2s ease-in-out 0s; */
+}
+
+    .other-color.opened {
+        width: auto;
+    }
+
+    /* Main profile colors */
+
+    .other-color #blueviolet {
+        background: #677FBF;
+    }
+
+    .other-color #orange {
+        background: #CD5527;
+    }
+
+    .other-color #gray {
+        background: #404042;
+    }
+
+    .other-color #green {
+        background: #02574D;
+    }
+
+    .other-color #cerulean {
+        background: #0B6285;
+    }
+
+    .other-color #blue {
+        background: #6D92CB;
+    }
+
+.settings-content .custom-chk {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.butt-msg {
+    position: relative;
+    background: #CD5526;
+    width: 40px;
+    height: 10px;
+    border-radius: 15px;
+}
+
+.butt-msg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: #fff;
+    cursor: pointer;
+    transition: all .5s ease-in-out 0s;
+    transform: translateY(-50%);
+    top: 50%;
+    -webkit-box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.75);
+}
+
+.custom-chk:checked + .butt-msg::after {
+    right: 0;
+    left: unset;
+}
+
+.custom-chk:checked + .butt-msg {
+    background: #086A56;
+}
+
+.settings li small {
+    display: none;
+    color: #CD5527
+}
+
+.blocked-user {
+    background: rgb(255, 227, 216);
+    padding: 2px 5px;
+    padding-right: 10px;
+}
+
+    .blocked-user + .blocked-user {
+        margin-left: 10px;
+    }
+
+.settings-block-list .settings-content a {
+    padding: 0 10px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+/* ------------ Editing ------- */
+
+.settings li.editing .content-header .save {
+    display: inline-block;
+}
+
+.settings li.editing .settings-content input[type = "text"] {
+    display: block;
+}
+
+.settings li.editing .value {
+    display: none;
+}
+
+/* ================== About section ========== */
+
+section.about {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.about-section {
+    display: flex;
+}
+
+.about-aside {
+    position: relative;
+    width: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+    .about-aside small {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        display: block;
+        width: 100%;
+        font-weight: bold;
+        display: none;
+    }
+
+    .about-aside .aside-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-aside > div > div:first-child > span {
+        font-weight: bold;
+    }
+
+    .about-aside > div input {
+        display: none;
+    }
+
+    .about-aside > div > div + div > span {
+        font-style: italic;
+    }
+
+.body-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.about-body span {
+    display: block;
+    padding: 7px;
+    padding-right: 20px;
+}
+
+.about-body a:hover {
+    opacity: .7;
+}
+
+.about-body {
+    border: 1px solid rgb(236, 236, 236);
+    border-left: 0;
+    border-radius: 6px;
+    background: #fff;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+    .socials-add small,
+    .about-body small {
+        margin-left: 10px;
+        color: red;
+        display: none;
+    }
+
+.socials-add small {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.about-body textarea {
+    display: none;
+    border: 1px solid rgb(236, 236, 236);
+}
+
+.socials-add.opened {
+    height: 490px;
+}
+
+.about-section .save {
+    display: none;
+}
+
+/* --------- Editing --------- */
+
+.about-aside > div > div + div.editing .edit,
+.about-aside > div > div + div.editing span,
+.about-aside > div > div:first-child.editing .edit,
+.about-aside > div > div:first-child.editing span {
+    display: none;
+}
+
+.about-aside > div > div + div.editing .save,
+.about-aside > div > div + div.editing input,
+.about-aside > div > div:first-child.editing .save,
+.about-aside > div > div:first-child.editing input {
+    display: block;
+}
+
+
+.about-body.editing span {
+    display: none;
+}
+
+.about-body.editing textarea {
+    display: block;
+}
+
+
+/* ===========  Portfolio  ========================  */
+
+section.port {
+    padding-top: 30px;
+    padding-bottom: 0px;
+}
+
+.add-port textarea {
+    margin-bottom: 20px;
+    min-height: 150px;
+}
+
+.add-port {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    transition: all .2s ease-in-out 0s;
+}
+
+    .add-port.opened {
+        height: auto !important;
+    }
+
+    .add-port small {
+        display: block;
+        display: none;
+    }
+
+.selected-photos {
+    margin-top: 20px;
+}
+
+    .selected-photos img {
+        height: 200px;
+        width: 230px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+.port-list {
+    margin-bottom: 80px;
+}
+
+.port-list .portfolio img {
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+   
+.port-type input{
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+}
+
+.port-type label{
+    cursor: pointer;
+}
+
+.add-port input[type="submit"] {
+    margin-bottom: 30px;
+}
+
+.portfolio {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+    .portfolio h5 {
+        z-index: 55555;
+        font-weight: bold;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        color: #fff;
+    }

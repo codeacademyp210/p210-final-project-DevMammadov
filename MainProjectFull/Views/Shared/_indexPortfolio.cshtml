@@ -1,0 +1,77 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.PortSearchVM
+<!-- Sort menu -->
+<article class="search-port">
+    <section class="search-menu" data-url="@Url.Action("GetPorts","Search")">
+        <!-- Sorting menu -->
+        <ul class="sort-menu ul-menu">
+            <li>
+                <a data-search="all" href="#" class="active">
+                    <i class="fas fa-scroll"></i> Hamısı
+                </a>
+            </li>
+            <li>
+                <a  data-search="topview" href="#">
+                    <i class="fas fa-eye"></i> Ən çox baxılan
+                </a>
+            </li>
+            <li>
+                <a data-search="design" href="#">
+                    <i class="fas fa-palette"></i> Qrafik dizayn
+                </a>
+            </li>
+            <li>
+                <a  data-search="web" href="#">
+                    <i class="fas fa-code"></i>Veb dizayn
+                </a>
+            </li>
+        </ul>
+    </section>
+</article>
+
+<!-- Search menu end -->
+<!-- Search results -->
+<article>
+    <section class="search-results">
+        <div class="container">
+            <!-- Search result items -->
+            <section class="result-items">
+                <div class="container">
+                    <div class="row">
+
+                        @foreach (var item in Model.Portfolios)
+                        {
+                            var img = Model.PortfolioImages.FirstOrDefault(ig => ig.PortfolioId == item.id);
+                            var profile = Model.Profiles.FirstOrDefault(p => p.id == item.ProfileId);
+                            var user = Model.Users.FirstOrDefault(u => u.Id == profile.UsersId);
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="portfolio-item" id="@item.id">
+                                    <div class="portfolio-img">
+                                        <img src="~/Content/Images/PortImages/@img.Name" id="@item.id" draggable="false" alt="">
+                                    </div>
+                                    <div class="portfolio-item-nav">
+                                        <div class="portfolio-name"> @item.Name </div>
+                                        <div class="portfolio-user-info">
+                                            <img src="~/Content/Images/Users/@profile.Photo" class="img-round" alt="">
+                                            <div>
+                                                <h5><a href="@Url.Action("Portfolio","Profile",new { id = profile.id })"> @user.Name @user.Surname </a></h5>
+                                                <h6><a href="#">@user.Profession </a> </h6>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio-item-info">
+                                            <i class="fas fa-eye"></i> <span>@item.View</span>
+                                            <i class="fas fa-comment-dots"></i> <span>0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+            <!-- Search result items end -->
+            <div class="clearfix"></div>
+        </div>
+    </section>
+</article>

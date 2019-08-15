@@ -1,0 +1,94 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.ChatVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .main-back {
+        background: #6D92CB;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: #6D92CB !important;
+    }
+
+    .main-color {
+        color: #6D92CB;
+    }
+</style>
+
+<!--=============================== Partial view area ===================================-->
+<section class="container message">
+    <div class="row message-container">
+        <div class="col-lg-12 chat-info">
+            <div>
+                <img src="~/Content/Images/Users/@Model.friendProfile.Photo" />
+                <a href="@Url.Action("About","Profile",new {id= Model.friendProfile.id })" class="main-back-color font-weight-bold"> @Model.Friend.Name @Model.Friend.Surname </a>
+            </div>
+            <div>
+                <a href="#" class="chat-settings main-back-color"> <i class="fas fa-cog"></i>  </a>
+                <ul class="ul-menu-vertical">
+                    <li> <a href="#" id="@Model.Friend.Id" class="remove-messages"> <i class="fas fa-comment-slash main-back-color"></i> Mesajları sil</a> </li>
+                    <li> <a href="#" class="block-this-user" id="@Model.Friend.Id"> <i class="fas fa-lock main-back-color"></i> Əngəllə </a> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-12 messages">
+            @if (Model.Messages.Count() == 0)
+            {
+                <div class="no-message"> Mesaj yoxdur </div>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var message in Model.Messages)
+                    {
+                        var sendDate = Convert.ToDateTime(message.Date);
+                        var showDate = "";
+
+                        if (sendDate.Month == DateTime.Now.Month && sendDate.Date == DateTime.Now.Date && sendDate.Hour == DateTime.Now.Hour && sendDate.Minute == DateTime.Now.Minute)
+                        {
+                            showDate = ( DateTime.Now.Second - sendDate.Second ) + " san əvvəl";
+                        }
+                        else if (sendDate.Month == DateTime.Now.Month && sendDate.Date == DateTime.Now.Date && sendDate.Hour == DateTime.Now.Hour && sendDate.Minute != DateTime.Now.Minute)
+                        {
+                            showDate = (DateTime.Now.Minute - sendDate.Minute) + " dəq əvvəl";
+                        }
+                        else if (sendDate.Month == DateTime.Now.Month && sendDate.Date == DateTime.Now.Date && sendDate.Hour != DateTime.Now.Hour)
+                        {
+                            showDate = (DateTime.Now.Hour - sendDate.Hour) +  " saat əvvəl";
+                        }
+                        else
+                        {
+                            showDate = sendDate.Date + "";
+                        }
+
+                        if (message.SenderId == Model.CurrentUser.Id)
+                        {
+                            <li class="me"> <img class="user-img" src="~/Content/Images/Users/@Model.CurrentProfile.Photo" /> <div class="main-back" id="@message.id"> @message.Message <small> @showDate </small> </div> </li>
+                        }
+                        else
+                        {
+                            <li> <img class="user-img" src="~/Content/Images/Users/@Model.friendProfile.Photo" /> <div class="main-back" id="@message.id"> @message.Message <small> @showDate </small>  </div> </li>
+                        }
+
+                    }
+                </ul>
+            }
+        </div>
+        <div class="col-lg-12 mt-4 p-0 resize-auto">
+            <div class="friend-id" id="@Model.Friend.Id"></div>
+            <div class="friend-img" data-src="@Url.Content("~/Content/Images/Users/" + Model.friendProfile.Photo)"></div>
+            <textarea name="" rows="4" class="form-control"></textarea>
+            <input type="submit" class="btn btn-primary mt-2 send" data-src="@Url.Content("~/Content/Images/Users/"+ Model.CurrentProfile.Photo)" value="Gonder">
+        </div>
+    </div>
+</section>
+
+<script src="~/js/Profile/chat.js"></script>
+<!--=============================== Partial view area ===================================-->

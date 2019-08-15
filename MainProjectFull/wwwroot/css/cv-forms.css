@@ -1,0 +1,83 @@
+/* ============ First CV Item form ======== */
+
+.render-partial.cv .col-lg-3{
+    margin-top: 10px;
+}
+
+.cv-item.first-cv{
+    border: 1px solid rgb(236, 236, 236);
+    position: relative;
+    cursor: pointer;
+    height: 240px;
+    overflow: hidden;
+    display: flex;
+}
+
+.cv-item.first-cv p{
+    margin: 0;
+}
+
+.cv-item.first-cv img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.cv-item.first-cv .cv-item-left{
+    width: 40%;
+    background-color: #494E5F;
+    padding: 5px;
+    line-height: 12px;
+    height: 100%;
+}
+
+.cv-item.first-cv .cv-header-text{
+    color: #FFE7D4;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 9px;
+}
+
+.cv-item.first-cv .cv-text{
+    color: #fff;
+    font-size: 6px;
+    line-height: 8px;
+    display: block;
+    padding-top: 3px;
+}
+
+.cv-item.first-cv .cv-line{
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    background: #FFE7D4;
+}
+
+.cv-item.first-cv .cv-item-right{
+   width: 60%;
+   padding: 0 5px;
+}
+
+.cv-item.first-cv .cv-item-right .cv-header-text{
+    background: #FFE7D4;
+    color: #494E5F;
+    padding: 3px;
+    width: 100%;
+    display: block;
+    padding-left: 3px;
+    font-size: 8px;
+    margin: 5px 0;
+}
+
+.cv-item.first-cv .cv-item-right .cv-text{
+    color: #494E5F;
+}
+
+.cv-item.first-cv .cv-section{
+    display: block;
+    margin: 5px 0;
+}

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- main css links -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="~/css/lightbox.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/profile/cv.css">
+    <link rel="stylesheet" href="~/css/cv-forms.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+    <!-- Page level css-->
+    @RenderSection("Styles", false)
+
+    <!-- Global media -->
+    <link rel="stylesheet" href="~/css/media.css">
+    <title>Document</title>
+
+    <style>
+        .profile-navbar .ul-menu li a i,
+        .upload-cover-img a i,
+        .profile-picture .upload-profile-img a i {
+            /* color: #FFCA06; */
+            color: rgb(65, 65, 65);
+        }
+        /* user name and surname color */
+        .user-info h3 a {
+            color: #fff;
+        }
+        /* Experience left side background color */
+        .exper-aside {
+            background: rgb(241, 241, 241);
+        }
+        /* Experience right side border color */
+        .exper-body {
+            border-color: rgb(241, 241, 241);
+        }
+        /* drop down add form backgrounds */
+        .skills-add,
+        .exper-add {
+            background: rgb(241, 241, 241);
+        }
+        /* Inform icon color */
+        .inform {
+            color: rgb(63, 63, 63);
+        }
+    </style>
+</head>
+<body>
+    <!-- header start -->
+    @await Html.PartialAsync("_Header")
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- footer start -->
+    @*<footer class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        &copy; 2019 &#xab;Code Academy&#xbb;  &#x3c;&#x3e; width love by <a href="#">Ferid Memmedov</a>
+                    </div>
+                </div>
+            </div>
+        </footer>*@
+    <!-- footer end -->
+    <!-- main scripts -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/js/SearchAjax.js"></script>
+    <script src="~/js/lightbox.js"></script>
+    <div data-port="@Url.Action("GetPortfolio","Port")" data-cv="@Url.Action("GetCv","Cv")" class="port-window"></div>
+
+    <script>
+        lightbox.option({
+            'resizeDuration': 50,
+            'wrapAround': true
+        })
+    </script>
+</body>
+</html>

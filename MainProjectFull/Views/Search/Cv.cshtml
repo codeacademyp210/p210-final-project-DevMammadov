@@ -1,0 +1,18 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.CvSearch
+
+<main>
+    @await Html.PartialAsync("_indexCover")
+    <!--=============================== Partial view area ===================================-->
+    <!-- Main section -->
+
+    <div id="partials">
+        @await Html.PartialAsync("_indexCv")
+    </div>
+    <!--=============================== Partial view area ===================================-->
+</main>
+<script>
+    $('.search-menu .section-menu li a').removeClass('active');
+    $('.search-menu .section-menu li#cv_section a').addClass('active');
+</script>
+@await Html.PartialAsync("_indexAjaxSections")

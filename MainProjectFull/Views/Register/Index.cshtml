@@ -1,0 +1,144 @@
+﻿
+@inject SignInManager<Users> SignInManager
+@inject UserManager<Users> UserManager
+
+@model MainProjectFull.ViewModel.LoginViewModel
+
+<main class="register">
+    <!-- ########################## PARTIAL VIEW START ###################  -->
+
+    <article>
+        <section class="register-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 left-side">
+
+                        <h3> Daxil ol </h3>
+
+                        <form asp-action="Login" method="post">
+                            <div asp-validation-summary="All"> </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-portrait"></i> </div>
+                                </div>
+                                <input type="text" required asp-for="LoginUser.Email" class="form-control mr-2" id="" placeholder="Email">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-portrait"></i> </div>
+                                </div>
+
+                                <input type="password" required asp-for="LoginUser.Password" class="form-control mr-2" id="" placeholder="Şifrə">
+                            </div>
+
+                            <div class="input-group">
+                                <input type="checkbox" id="remember" asp-for="LoginUser.RememberMe" value="true" />
+                                <label for="remember">Məni yadda saxla </label>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="submit" value="Giriş" class="form-control butt butt-success butt-big mb-3">
+                            </div>
+                        </form>
+
+                        <h3> Yeni codefolio yarat </h3>
+
+                        <div asp-validation-summary="All"></div>
+
+                        <form asp-action="Register" method="post">
+                            <!-- Name surname -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-portrait"></i> </div>
+                                </div>
+                                <input type="text" required asp-for="RegisterUser.Name" class="form-control mr-2" id="" placeholder="Adınız">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-portrait"></i> </div>
+                                </div>
+                                <input type="text" required asp-for="RegisterUser.Surname" class="form-control" id="" placeholder="Soyadınız">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-at"></i> </div>
+                                </div>
+                                <input type="text"  required asp-for="RegisterUser.Email" class="form-control" id="" placeholder="Emailiniz">
+                            </div>
+
+                            <!-- Password -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> <i class="fas fa-lock"></i> </div>
+                                </div>
+                                <input type="password"  required asp-for="RegisterUser.PasswordHash" class="form-control" id="" placeholder="Şifrəniz">
+                            </div>
+
+                            <!-- Data of bith -->
+                            <div class="input-group select-date">
+                                <select name="year" id="year" class="form-control"></select>
+
+                                <select name="month" id="month" class="form-control"></select>
+
+                                <select name="day" id="day" class="form-control"></select>
+
+                                <input type="date" asp-for="RegisterUser.Birth" class="birth-date">
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="input-group form-control">
+                                <div class="custom-radio">
+                                    <input type="radio" value="false" asp-for="RegisterUser.Gender" class="" id="female">
+                                    <label for="female">Qadın</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" value="true" asp-for="RegisterUser.Gender" class="" id="male">
+                                    <label for="male">Kişi</label>
+                                </div>
+                            </div>
+                            
+                            <select name="ProfileType" required class="form-control mt-3">
+                                <option value="">Profil tipi</option>
+                                <option value="code">Programmer</option>
+                                <option value="design">Designer</option>
+                            </select>
+                            <small class="text-danger">Diqqət! profil tipi profildə görünmür və sonradan dəyişilmir</small>
+
+
+                            <!-- text about terms -->
+                            <div class="our-terms">
+                                Qeydiyyat düyməsini basmaqla siz bizim <a href="#">istifadəçi qaydalarını</a>
+                                qəbul etmiş və öz ilkin məlumatlarınızı bizə göndərmiş olursunuz.
+                                daha sonra profilinizi dizayn edib portfolionuzu yayımlaya bilərsiniz.
+                            </div>
+
+                            <!-- Remember me checkbox -->
+                            <div class="input-group">
+                                <input type="checkbox" id="remember" name="rememberme" value="true" />
+                                <label for="remember">Məni yadda saxla </label>
+                            </div>
+
+                            <input type="submit" value="Qeydiiyat" class="butt butt-success butt-big my-4">
+                        </form>
+
+                        @*<div class="mt-4 text-danger">Bu emaildə user artıq mövcuddur</div>*@
+                    </div>
+                    <div class="col-lg-6 right-side">
+                        <h4> Codefolio.az dan qeydiyyatdan keç! </h4>
+
+                        <p>
+                            Codefolio saytında qeydiyyatdan keçməklə siz özünüzə şəxsi portfolio saytı
+                            saytı yaratmış olursunuz. Öz zövqünüzə uyğun sayt dizaynı və rənglərdən istifadə
+                            etməklə mükəmməl profil hazırlayın.
+                            Həmçinin sevdiyiniz şəkildə öz CV.nizi hazırlayıb premium edə bilərsiniz.
+                            <br>
+                            <b>Yaradıcılıq sərhəd tanımır !</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- ########################## PARTIAL VIEW END ###################  -->
+</main>

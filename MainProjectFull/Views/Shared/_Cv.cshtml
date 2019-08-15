@@ -1,0 +1,298 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.CvVM
+
+<style>
+    .main-back {
+        background: @Model.coverClass.Profile.BackColor;
+        color: #fff;
+    }
+
+    .main-back-color:hover,
+    .main-back-color {
+        color: @Model.coverClass.Profile.BackColor !important;
+    }
+
+    .main-color {
+        color: @Model.coverClass.Profile.TextColor;
+    }
+
+    .end-date a,
+    .start-date a {
+        color: #fff;
+    }
+</style>
+
+<section class="container section-cv">
+    <!-- Links to backend -->
+    <div data-url="@Url.Action("ChangeCvPhoto","Cv")" class="d-none cv-img-url"></div>
+    <div data-url="@Url.Action("Edit","Cv")" class="cv-edit-src"></div>
+    <!-- / Links to backend-->
+
+    <div class="main-section-header">
+        <h6 class="mb-4">CV</h6>
+        <div>
+            @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.coverClass.Profile.User.Email)
+            {
+                <a href="#" class="hover-underline add-form">redaktə et </a>
+            }
+        </div>
+    </div>
+    @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.coverClass.Profile.User.Email)
+    {
+        <div class="edit-cv dropdown">
+
+            <div class="cv-forms">
+                <div id="simple">
+                    <img src="~/Content/Images/CvFroms/simple.PNG" alt="">
+                </div>
+                <div id="wave">
+                    <img src="~/Content/Images/CvFroms/wave.PNG" alt="">
+                </div>
+            </div>
+
+            <div class="cv-colors">
+                <div id="blue" class="cv-blue"></div>
+                <div id="pink" class="cv-pink"></div>
+                <div id="green" class="cv-green"></div>
+                <div id="violet" class="cv-violet"></div>
+                <div id="asphalt" class="cv-asphalt"></div>
+                <div id="pumpkin" class="cv-pumpkin"></div>
+                <div id="sea" class="cv-sea"></div>
+                <div id="silver" class="cv-silver"></div>
+                <div id="granate" class="cv-granate"></div>
+                <div id="deeprose" class="cv-deeprose"></div>
+                <div id="purple" class="cv-purple"></div>
+                <div id="rose" class="cv-rose"></div>
+                <div id="baltic" class="cv-baltic"></div>
+                <div id="red" class="cv-red"></div>
+                <div id="liberty" class="cv-liberty"></div>
+                <div id="devil" class="cv-devil"></div>
+                <div id="desire" class="cv-desire"></div>
+                <div id="berry" class="cv-berry"></div>
+            </div>
+        </div>
+    }
+    <div class="current-cv">
+
+        <div class="cv-container">
+            <div class="cv bg-white @Model.Cv.Type @Model.Cv.Color">
+                <div class="wave-design"></div>
+
+                <div class="cv-aside">
+                    <div class="cv-img">
+                        <img src="~/Content/Images/CvImages/@Model.Cv.Photo" alt="" draggable="false">
+                        @if (SignInManager.IsSignedIn(User) && User.Identity.Name == Model.coverClass.Profile.User.Email)
+                        {
+                        <div class="upload-cv-img">
+                            <a href="#" class="cv-img-uploader"> <i class="fas fa-pen"></i> </a>
+                            <input class="hidden-input" type="file"  accept=".jpg,.png" name="cv-img">
+                        </div>
+                        }
+                    </div>
+
+                    <div class="cv-introduction">
+                        <div class="cv-header">INTRODUCTION</div>
+                        <span> @Model.coverClass.User.About </span>
+                    </div>
+                    @if (Model.SkillHeaders.Count > 0)
+                    {
+                    <div class="cv-skills">
+                        <div class="cv-header">PROFESSIONAL SKILLS</div>
+
+                        @foreach (var item in Model.SkillHeaders)
+                        {
+                            <p> @item.Name </p>
+                            <ul class="ul-menu-vertical">
+
+                                @foreach (var sh in Model.SkillsHeaders.Where(sh => sh.SkillsHeaderId == item.id))
+                                {
+                                    var skill = Model.Skills.FirstOrDefault(s => s.id == sh.PositionId);
+
+                                    <li> @skill.Name </li>
+                                }
+
+                            </ul>
+                        }
+                    </div>
+                    }
+
+                    <div class="cv-contact">
+                        <div class="cv-header">CONTACT DETAILS</div>
+                        <ul>
+                            @if (@Model.coverClass.User.PhoneNumber != null)
+                            {
+                                <li>
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span class="key">Phone:</span>
+                                    <span> @Model.coverClass.User.PhoneNumber </span>
+                                </li>
+                            }
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span class="key">Email:</span>
+                                <span>@Model.coverClass.User.Email</span>
+                            </li>
+                            @if (@Model.coverClass.User.PhoneNumber != null)
+                            {
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="key">Address:</span>
+                                    <span>@Model.coverClass.User.Address</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="cv-social-address">
+                        @if (Model.coverClass.User.Linkedin != null || Model.coverClass.User.Github != null || Model.coverClass.User.Facebook != null)
+                        {
+                            <div class="cv-header">SAY HELLO</div>
+                        }
+                        <span>
+                            @if (Model.coverClass.User.Linkedin != null)
+                            {
+                                <a href="@Model.coverClass.User.Linkedin" target="_blank"> <i class="fab fa-linkedin-in"></i> </a>
+                            }
+                            @if (Model.coverClass.User.Github != null)
+                            {
+                                <a href="@Model.coverClass.User.Github" target="_blank"> <i class="fab fa-github"></i> </a>
+
+                            }
+                            @if (Model.coverClass.User.Behance != null)
+                            {
+                                <a href="@Model.coverClass.User.Behance" target="_blank"> <i class="fab fa-behance"></i> </a>
+                            }
+                            @if (Model.coverClass.User.Facebook != null)
+                            {
+                                <a href="@Model.coverClass.User.Facebook" target="_blank"> <i class="fab fa-facebook"></i> </a>
+                            }
+
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="cv-body">
+                    <div class="cv-cover">
+                        <div>
+                            <h2 class="w-100">@Model.coverClass.User.Name @Model.coverClass.User.Surname </h2>
+                            <span> @Model.coverClass.User.Profession </span>
+                        </div>
+                    </div>
+                    @if (Model.Universities.Count > 0)
+                    {
+                    <div class="cv-section academic">
+                        <div class="s-header">
+                            <i class="fa fa-user-graduate"></i>
+                            <span> ACADEMIC BACKGROUND </span>
+                        </div>
+                        <div class="s-body">
+                            <ul>
+                                @foreach (var item in Model.Universities)
+                                {
+                                    <li>
+                                        <span>@item.Name</span>
+                                        <small>
+                                            @item.Profession (@item.StartDate.ToString("yyyy.MM.dd") - @item.EndDate.ToString("yyyy.MM.dd") )
+                                        </small>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
+                    @if (Model.Experience.Count > 0)
+                    {
+                    <div class="cv-section experience">
+                        <div class="s-header">
+                            <i class="fa fa-briefcase"></i>
+                            <span> WORK EXPERIENCE </span>
+                        </div>
+                        <div class="s-body">
+                            <ul>
+                                @foreach (var item in Model.Experience)
+                                {
+                                    var company = Model.Company.FirstOrDefault(c => c.id == item.CompanyId);
+
+                                    <li>
+                                        <span>@company.Name</span>
+                                        <small>@item.Position</small>
+                                        <p>
+                                            <small>@item.StartDate.ToString("dd.MM.yyyy")</small> -
+                                            @if (item.EndDate.ToString("yyyy-MM-dd") == "0001-01-01")
+                                            {
+                                                <small>İşləyirəm</small>
+                                            }
+                                            else
+                                            {
+                                                <small>@item.EndDate.ToString("dd.MM.yyyy")</small>
+                                            }
+                                        </p>
+
+                                        <p>@item.About</p>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    }
+                    @if (Model.SocialActs.Count > 0)
+                    {
+                    <div class="cv-section activity">
+                        <div class="s-header">
+                            <i class="fa fa-briefcase"></i>
+                            <span> SOCIAL ACTIVITIES </span>
+                        </div>
+                        <div class="s-body">
+                            <ul>
+                                @foreach (var item in Model.SocialActs)
+                                {
+                                    <li>
+                                        <span>@item.Company</span>
+                                        <small>@item.Position </small>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
+                    @if (Model.UsersLanguages.Count > 0)
+                    {
+                    <div class="cv-section languages">
+                        <div class="s-header">
+                            <i class="fa fa-globe-americas"></i>
+                            <span> LANGUAGES </span>
+                        </div>
+                        <div class="s-body">
+                            <ul>
+                                @foreach (var item in Model.UsersLanguages)
+                                {
+                                    var lang = Model.Languages.FirstOrDefault(l => l.id == item.LanguagesId);
+
+                                    <li> <span>@lang.Name <small>(@item.Level)</small></span> </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
+                    @*<div class="cv-section hobbi">
+                        <div class="s-header">
+                            <i class="fa fa-puzzle-piece"></i>
+                            <span> HIBBIES </span>
+                        </div>
+                        <div class="s-body">
+                            <small> I like to watch a movie in comedic or motivational genres </small>
+                        </div>
+                    </div>*@
+                </div>
+
+                <div class="wave-design-footer"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script src="~/js/Profile/cv.js"></script>
+<script src="~/js/Profile/main.js"></script>

@@ -1,0 +1,39 @@
+﻿<script>
+
+    $('.search-menu .section-menu li a').click(function (e) {
+        e.preventDefault();
+
+        $('.search-menu .section-menu li a').removeClass('active');
+        $(this).addClass('active');
+
+        let section = $(this).attr('href');
+        let url;
+
+        if (section.length > 0) {
+            url = "/Search/" + section;
+        }
+        else {
+            url = "/";
+        }
+
+        
+        if (history.pushState) {
+
+            window.history.replaceState({ path: section }, "", url);
+        } else {
+            document.location.href = url;
+        }
+
+
+    $.ajax({
+        url: $(this).attr('data-url'),
+        type: "GET",
+        success: function (response, status) {
+
+            $("#partials").html(response);
+        }
+    });
+});
+</script>
+
+

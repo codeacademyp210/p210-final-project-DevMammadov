@@ -1,0 +1,102 @@
+﻿@inject SignInManager<Users> SignInManager
+@model MainProjectFull.ViewModel.ImgBoxVM
+
+<div class="cancel">
+    <a href="#">
+        <i class="far fa-times-circle"></i>
+    </a>
+</div>
+
+<div class="container window-main">
+    <div class="window-header main-back">
+        <h2>@Model.Portfolio.Name</h2>
+        <div>
+
+            @if (Model.CurrentUser.Id == Model.Profile.UsersId)
+            {
+                <a href="#" class="port-img-add" title="Portfolioya şəkil əlavə et"><i class="fas fa-folder-plus"></i></a>
+                <input data-url="@Url.Action("AddImg", "Port")" data-port="@Model.Portfolio.id" data-src="@Url.Content("~/Content/Images/PortImages/")" type="file" class="port-img-select hidden-input" value="" />
+            }
+
+            @if (Model.CurrentUser.Id == Model.Profile.UsersId)
+            {
+                <a href="#" class="remove-port" data-port="@Model.Portfolio.id" title="Portfolinu sil"><i class="fas fa-trash-alt"></i></a>
+            }
+
+            <a href="@Url.Action("Portfolio","Profile",new { id = Model.Profile.id })">
+                <img src="~/Content/Images/Users/@Model.Profile.Photo" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="window-body" data-port="@Model.Portfolio.id" data-remove="@Url.Action("RemoveImg","Port")">
+        @foreach (var item in Model.PortImages)
+        {
+            <div class="port-img-div">
+                @if (Model.CurrentUser.Id == Model.Profile.UsersId)
+                {
+                    <a href="#" class="remove-port-img">
+
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                }
+                <img id="@item.id" src="~/Content/Images/PortImages/@item.Name" />
+            </div>
+        }
+
+        <div class="about">
+            @Model.Portfolio.About
+        </div>
+        <div class="links">
+            <div class="port-view main-back-color">
+                <i class="far fa-eye"></i>  @Model.Portfolio.View
+            </div>
+            <div>
+                @if (Model.Portfolio.Behance != null)
+                {
+                    <a href="@Model.Portfolio.Behance" target="_blank" class="main-back-color">
+                        <i class="fab fa-behance-square"></i>
+                    </a>
+                }
+                @if (Model.Portfolio.Github != null)
+                {
+                    <a href="@Model.Portfolio.Github" target="_blank" class="main-back-color">
+                        <i class="fab fa-github-square"></i>
+                    </a>
+                }
+                @if (Model.Portfolio.Website != null)
+                {
+                    <a href="@Model.Portfolio.Website" target="_blank" class="main-back-color">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="window-footer">
+        @if(SignInManager.IsSignedIn(User))
+        {
+            <div class="comment-form" data-url="@Url.Action("AddComment", "Port")" data-src="@Url.Content("~/Content/Images/Users/")">
+                <textarea class="form-control" placeholder="Şərh yaz"></textarea>
+                <button class="butt butt-gray mt-2 send-comment">Paylaş</button>
+            </div>
+        }
+        <div class="comments">
+
+            @foreach (var item in Model.Comments)
+            {
+                var user = Model.Users.FirstOrDefault(u => u.Id == item.SenderId);
+                var profile = Model.Profiles.FirstOrDefault(p => p.UsersId == user.Id);
+                <div class="comment">
+                    <div class="image">
+                        <img src="~/Content/Images/Users/@profile.Photo" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="user-name main-back-color">@user.Name @user.Surname - <small>@item.Date</small> </div>
+                        @item.Text
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
